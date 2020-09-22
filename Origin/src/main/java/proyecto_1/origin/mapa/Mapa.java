@@ -25,6 +25,8 @@ public class Mapa extends javax.swing.JFrame {
         setTitle("Origin");
         setName("Mapa"); // NOI18N
 
+        mapa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout mapaLayout = new javax.swing.GroupLayout(mapa);
         mapa.setLayout(mapaLayout);
         mapaLayout.setHorizontalGroup(
