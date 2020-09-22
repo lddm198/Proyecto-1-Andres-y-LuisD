@@ -44,7 +44,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jTabbedPane1" min="-2" pref="307" max="-2" attributes="0"/>
-                      <EmptySpace pref="150" max="32767" attributes="0"/>
+                      <EmptySpace pref="152" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pts_hp" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="pts_escudo" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -1157,7 +1157,7 @@
                               <Component id="jButton51" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton50" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="106" max="32767" attributes="0"/>
+                          <EmptySpace pref="105" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1319,7 +1319,7 @@
                               <Component id="jButton47" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton46" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="101" max="32767" attributes="0"/>
+                          <EmptySpace pref="100" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
