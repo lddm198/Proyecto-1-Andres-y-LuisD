@@ -10,8 +10,13 @@ package proyecto_1.origin;
  * @author Xandr
  */
 public class Tienda extends javax.swing.JInternalFrame {
-
+    
+    public int v_espada_1=200, v_espada_2=250,v_espada_3=300;
+    public int v_escudo_1=100, v_escudo_2=150,v_escudo_3=200;
+    public int v_consumibles_1=20,v_consumibles_2=50,v_consumibles_3=100;
     public int hp=40,escudo=25,fuerza=30,magia=10,velocidad=30;
+    
+    
     public Tienda() {
         initComponents();
         
@@ -31,6 +36,49 @@ public class Tienda extends javax.swing.JInternalFrame {
         velocidad_stats.setValue(velocidad);
         
     }
+    public int obtener_v_armas(){
+        if (rb_arma_1.isSelected()){
+            return v_espada_1;
+        }
+        if (rb_arma_2.isSelected()){
+            return v_espada_2;
+        }
+        if (rb_arma_3.isSelected()){
+            return v_espada_3;
+        }
+        return 0;
+     
+    }
+    public int obtener_v_escudos(){
+        if (rb_escudo_1.isSelected()){
+            return v_escudo_1;
+        }
+        if (rb_escudo_2.isSelected()){
+            return v_escudo_2;
+        }
+        if (rb_arma_3.isSelected()){
+            return v_escudo_3;
+        }
+        return 0;
+    }
+    public int obtener_v_consumibles(){
+        if (rb_consumibles_1.isSelected()){
+            return v_consumibles_1;
+        }
+        if (rb_consumibles_2.isSelected()){
+            return v_consumibles_2;
+        }
+        if (rb_consumibles_3.isSelected()){
+            return v_consumibles_3;
+        }
+        return 0;
+    }
+    public int obtener_cantidad_a(){
+        Integer valor= (Integer) compra_cantidad_armas.getValue();
+        return valor;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,7 +208,7 @@ public class Tienda extends javax.swing.JInternalFrame {
         b_equipar_objetos = new javax.swing.JButton();
 
         setClosable(true);
-        setFrameIcon(new javax.swing.ImageIcon("C:\\Users\\Familia Delgado\\Desktop\\Luis D\\TEC\\Programas\\Proyecto 1 POO\\26-Investment connection.png")); // NOI18N
+        setFrameIcon(null);
 
         jScrollPane1.setToolTipText("Espada perfecta para enemigos basicos, aumenta dos puntos de vida");
 
@@ -209,6 +257,11 @@ public class Tienda extends javax.swing.JInternalFrame {
         jLabel15.setText("Cantidad:");
 
         Tot_compra_armas.setText("0");
+        Tot_compra_armas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tot_compra_armasActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Total:");
 
@@ -222,6 +275,11 @@ public class Tienda extends javax.swing.JInternalFrame {
         jButton2.setText("Cancelar");
 
         compra_cantidad_armas.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        compra_cantidad_armas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                compra_cantidad_armasStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1011,34 +1069,42 @@ public class Tienda extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rb_arma_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_1ActionPerformed
-        pts_hp.setText("");
-        pts_escudo.setText("");
-        pts_fuerza.setText("");
-        pts_magia.setText("");
-        pts_velocidad.setText("");
-
+        
+        
         if(rb_arma_1.isSelected()){
+            
             rb_arma_2.setSelected(false);
             rb_arma_3.setSelected(false);
-
+            
+            
+            pts_hp.setText("");
+            pts_escudo.setText("");
+            pts_fuerza.setText("");
+            pts_magia.setText("");
+            pts_velocidad.setText("");
+            
             hp_stats.setValue(hp+2);
             pts_hp.setText("+2");
+           
+            
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_rb_arma_1ActionPerformed
 
     private void rb_arma_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_2ActionPerformed
 
-        pts_hp.setText("");
-        pts_escudo.setText("");
-        pts_fuerza.setText("");
-        pts_magia.setText("");
-        pts_velocidad.setText("");
+        
 
         if(rb_arma_2.isSelected()){
             rb_arma_1.setSelected(false);
             rb_arma_3.setSelected(false);
-
+            
+            pts_hp.setText("");
+            pts_escudo.setText("");
+            pts_fuerza.setText("");
+            pts_magia.setText("");
+            pts_velocidad.setText("");
+            
             hp_stats.setValue(hp+5);
             pts_hp.setText("+5");
 
@@ -1053,16 +1119,18 @@ public class Tienda extends javax.swing.JInternalFrame {
 
     private void rb_arma_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_3ActionPerformed
 
-        pts_hp.setText("");
-        pts_escudo.setText("");
-        pts_fuerza.setText("");
-        pts_magia.setText("");
-        pts_velocidad.setText("");
+       
 
         if(rb_arma_3.isSelected()){
             rb_arma_1.setSelected(false);
             rb_arma_2.setSelected(false);
-
+            
+            pts_hp.setText("");
+            pts_escudo.setText("");
+            pts_fuerza.setText("");
+            pts_magia.setText("");
+            pts_velocidad.setText("");
+            
             hp_stats.setValue(hp+5);
             pts_hp.setText("+5");
 
@@ -1076,7 +1144,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rb_arma_3ActionPerformed
 
     private void b_comprar_armasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_comprar_armasActionPerformed
-        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_b_comprar_armasActionPerformed
 
     private void rb_escudo_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_escudo_1ActionPerformed
@@ -1266,6 +1334,20 @@ public class Tienda extends javax.swing.JInternalFrame {
     private void b_equipar_objetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_equipar_objetosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b_equipar_objetosActionPerformed
+
+    private void Tot_compra_armasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tot_compra_armasActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_Tot_compra_armasActionPerformed
+
+    private void compra_cantidad_armasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_compra_cantidad_armasStateChanged
+        int valor_armas =obtener_v_armas();
+        int cantidad_armas=obtener_cantidad_a();
+        int tot= valor_armas*cantidad_armas;
+        System.out.println(tot);
+        Tot_compra_armas.setText(""+tot);        // TODO add your handling code here:
+    }//GEN-LAST:event_compra_cantidad_armasStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
