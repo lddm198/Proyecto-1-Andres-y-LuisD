@@ -5,9 +5,26 @@ public class Mapa extends javax.swing.JFrame {
 
     Inventario inventario = new Inventario();
     Tienda tienda=new Tienda();
+    
+    
     public Mapa() {
         initComponents();
     }
+    public static void valores()throws Exception{
+        Amazon_API valores = new Amazon_API();
+        int [] valores_a=new int[0];
+        int [] valores_e=new int[0];
+        int [] valores_c=new int[0];
+        valores_a=valores.obtener_valores_a();
+        valores_e=valores.obtener_valores_e();
+        valores_c=valores.obtener_valores_c();
+        
+        System.out.println("Valores_a: "+valores_a[0]+" "+valores_a[1]+" "+valores_a[2]);
+        System.out.println("Valores_e: "+valores_e[0]+" "+valores_e[1]+" "+valores_e[2]);
+        System.out.println("Valores_c: "+valores_c[0]+" "+valores_c[1]+" "+valores_c[2]);
+        
+        
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,8 +120,8 @@ public class Mapa extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        
+    public static void main(String args[])throws Exception {
+        valores();
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
