@@ -9,12 +9,12 @@ package proyecto_1.origin;
  *
  * @author Xandr
  */
-public class Tienda extends javax.swing.JInternalFrame {
-    
-    Amazon_API valores = new Amazon_API(); 
+public class Tienda extends javax.swing.JInternalFrame { 
     
     public int hp=40,escudo=25,fuerza=30,magia=10,velocidad=30;
-    
+    public int valores_a1,valores_a2, valores_a3;
+    public int[] valores_e;
+    public int[] valores_c;
     
     public Tienda() {
         initComponents();
@@ -36,48 +36,65 @@ public class Tienda extends javax.swing.JInternalFrame {
         
     }
     
+    public Tienda(int[] val_a, int[] val_e, int[] val_c){
+        initComponents();
+        
+        System.out.println("Valores_a: "+val_a[0]+" "+val_a[1]+" "+val_a[2]);
+        System.out.println("Valores_e: "+val_e[0]+" "+val_e[1]+" "+val_e[2]);
+        System.out.println("Valores_c: "+val_c[0]+" "+val_c[1]+" "+val_c[2]);
+
+        lab_espada_1.setText("$"+val_a[0]);
+        lab_espada_2.setText("$"+val_a[1]);
+        lab_espada_2.setText("$"+val_a[2]);
+        valores_e = val_e;
+        valores_c = val_c;
+        
+    }
+   
     public int obtener_v_armas() throws Exception{
+               
         if (rb_arma_1.isSelected()){
-            return valores.obtener_valores_a()[0];
+            return valores_a1;
         }
         if (rb_arma_2.isSelected()){
-            return valores.obtener_valores_a()[1];
+            return valores_a1;
         }
         if (rb_arma_3.isSelected()){
-            return valores.obtener_valores_a()[2];
+            return valores_a1;
         }
+        
         return 0;
      
     }
     public int obtener_v_escudos() throws Exception{
         if (rb_escudo_1.isSelected()){
-            return valores.obtener_valores_e()[0];
+            return valores_e[0];
         }
         if (rb_escudo_2.isSelected()){
-            return valores.obtener_valores_e()[1];
+            return valores_e[1];
         }
         if (rb_arma_3.isSelected()){
-            return valores.obtener_valores_e()[2];
+            return valores_e[2];
         }
         return 0;
     }
     public int obtener_v_consumibles() throws Exception{
         if (rb_consumibles_1.isSelected()){
-            return valores.obtener_valores_c()[0];
+            return valores_c[0];
         }
         if (rb_consumibles_2.isSelected()){
-            return valores.obtener_valores_c()[1];
+            return valores_c[1];
         }
         if (rb_consumibles_3.isSelected()){
-            return valores.obtener_valores_c()[2];
+            return valores_c[2];
         }
         return 0;
     }
     public int obtener_cantidad_a(){
         Integer valor = (Integer) compra_cantidad_armas.getValue();
+       
         return valor;
     }
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -88,16 +105,16 @@ public class Tienda extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
-        jLabel11 = new javax.swing.JLabel();
+        lab_espada_1 = new javax.swing.JLabel();
         rb_arma_1 = new javax.swing.JRadioButton();
         rb_arma_2 = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
+        lab_espada_2 = new javax.swing.JLabel();
         rb_arma_3 = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextPane3 = new javax.swing.JTextPane();
-        jLabel12 = new javax.swing.JLabel();
+        lab_espada_3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         Tot_compra_armas = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -211,8 +228,6 @@ public class Tienda extends javax.swing.JInternalFrame {
         jTextPane1.setToolTipText("");
         jScrollPane1.setViewportView(jTextPane1);
 
-        jLabel11.setText("$200");
-
         rb_arma_1.setText("Espada nvl 5");
         rb_arma_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,8 +241,6 @@ public class Tienda extends javax.swing.JInternalFrame {
                 rb_arma_2ActionPerformed(evt);
             }
         });
-
-        jLabel8.setText("$250");
 
         rb_arma_3.setText("Espada nvl 30");
         rb_arma_3.addActionListener(new java.awt.event.ActionListener() {
@@ -245,8 +258,6 @@ public class Tienda extends javax.swing.JInternalFrame {
         jTextPane3.setEditable(false);
         jTextPane3.setText("Espada perfecta para convatir Jefes, agil y con buen daño. +20HP, +5 Magia, + 3 Velocidad");
         jScrollPane3.setViewportView(jTextPane3);
-
-        jLabel12.setText("$300");
 
         jLabel15.setText("Cantidad:");
 
@@ -286,16 +297,16 @@ public class Tienda extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rb_arma_2)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel8))
+                                .addComponent(lab_espada_2))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rb_arma_1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel11))
+                                .addComponent(lab_espada_1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rb_arma_3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel12)))
-                        .addGap(0, 152, Short.MAX_VALUE))
+                                .addComponent(lab_espada_3)))
+                        .addGap(0, 176, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,19 +338,19 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_arma_1)
-                    .addComponent(jLabel11))
+                    .addComponent(lab_espada_1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_arma_2)
-                    .addComponent(jLabel8))
+                    .addComponent(lab_espada_2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_arma_3)
-                    .addComponent(jLabel12))
+                    .addComponent(lab_espada_3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -356,6 +367,12 @@ public class Tienda extends javax.swing.JInternalFrame {
                     .addComponent(b_comprar_armas))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        lab_espada_1.getAccessibleContext().setAccessibleName("lab_espada_1");
+        lab_espada_1.getAccessibleContext().setAccessibleDescription("");
+        lab_espada_1.getAccessibleContext().setAccessibleParent(null);
+        lab_espada_2.getAccessibleContext().setAccessibleName("lab_espada_2");
+        lab_espada_3.getAccessibleContext().setAccessibleName("lab_espada_3");
 
         jTabbedPane2.addTab("Armas", jPanel1);
 
@@ -1063,14 +1080,12 @@ public class Tienda extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rb_arma_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_1ActionPerformed
-        
-        
+
         if(rb_arma_1.isSelected()){
             
             rb_arma_2.setSelected(false);
             rb_arma_3.setSelected(false);
-            
-            
+           
             pts_hp.setText("");
             pts_escudo.setText("");
             pts_fuerza.setText("");
@@ -1079,15 +1094,12 @@ public class Tienda extends javax.swing.JInternalFrame {
             
             hp_stats.setValue(hp+2);
             pts_hp.setText("+2");
-           
-            
+                 
         }
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_rb_arma_1ActionPerformed
 
     private void rb_arma_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_2ActionPerformed
-
-        
 
         if(rb_arma_2.isSelected()){
             rb_arma_1.setSelected(false);
@@ -1113,8 +1125,6 @@ public class Tienda extends javax.swing.JInternalFrame {
 
     private void rb_arma_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_3ActionPerformed
 
-       
-
         if(rb_arma_3.isSelected()){
             rb_arma_1.setSelected(false);
             rb_arma_2.setSelected(false);
@@ -1138,7 +1148,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rb_arma_3ActionPerformed
 
     private void b_comprar_armasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_comprar_armasActionPerformed
-                // TODO add your handling code here:
+   
     }//GEN-LAST:event_b_comprar_armasActionPerformed
 
     private void rb_escudo_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_escudo_1ActionPerformed
@@ -1248,6 +1258,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rb_consumibles_2ActionPerformed
 
     private void rb_consumibles_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_consumibles_3ActionPerformed
+        
         if (rb_consumibles_3.isSelected()){
             rb_consumibles_2.setSelected(false);
             rb_consumibles_1.setSelected(false);
@@ -1255,6 +1266,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rb_consumibles_3ActionPerformed
 
     private void v_rb_espada_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_espada_1ActionPerformed
+        
         if(v_rb_espada_1.isSelected()){
             v_rb_espada_2.setSelected(false);
             v_rb_espada_3.setSelected(false);
@@ -1262,6 +1274,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_v_rb_espada_1ActionPerformed
 
     private void v_rb_espada_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_espada_2ActionPerformed
+        
         if(v_rb_espada_2.isSelected()){
             v_rb_espada_1.setSelected(false);
             v_rb_espada_3.setSelected(false);
@@ -1269,6 +1282,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_v_rb_espada_2ActionPerformed
 
     private void v_rb_espada_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_espada_3ActionPerformed
+        
         if(v_rb_espada_3.isSelected()){
             v_rb_espada_2.setSelected(false);
             v_rb_espada_1.setSelected(false);
@@ -1276,6 +1290,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_v_rb_espada_3ActionPerformed
 
     private void v_rb_escudo_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_escudo_1ActionPerformed
+        
         if(v_rb_escudo_1.isSelected()){
             v_rb_escudo_2.setSelected(false);
             v_rb_escudo_3.setSelected(false);
@@ -1283,6 +1298,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_v_rb_escudo_1ActionPerformed
 
     private void v_rb_escudo_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_escudo_2ActionPerformed
+        
         if(v_rb_escudo_2.isSelected()){
             v_rb_escudo_1.setSelected(false);
             v_rb_escudo_3.setSelected(false);
@@ -1290,6 +1306,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_v_rb_escudo_2ActionPerformed
 
     private void v_rb_escudo_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_escudo_3ActionPerformed
+        
         if(v_rb_escudo_3.isSelected()){
             v_rb_escudo_2.setSelected(false);
             v_rb_escudo_1.setSelected(false);
@@ -1297,6 +1314,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_v_rb_escudo_3ActionPerformed
 
     private void v_rb_consumibles_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_consumibles_1ActionPerformed
+        
         if(v_rb_consumibles_1.isSelected()){
             v_rb_consumibles_2.setSelected(false);
             v_rb_consumibles_3.setSelected(false);
@@ -1304,6 +1322,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_v_rb_consumibles_1ActionPerformed
 
     private void v_rb_consumibles_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_consumibles_2ActionPerformed
+        
         if(v_rb_consumibles_2.isSelected()){
             v_rb_consumibles_1.setSelected(false);
             v_rb_consumibles_3.setSelected(false);
@@ -1337,11 +1356,15 @@ public class Tienda extends javax.swing.JInternalFrame {
 
     private void compra_cantidad_armasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_compra_cantidad_armasStateChanged
         try {
-            int valor_armas =obtener_v_armas();
-            int cantidad_armas=obtener_cantidad_a();
-            int tot= valor_armas*cantidad_armas;
+            int valor_armas = obtener_v_armas();
+            int cantidad_armas = obtener_cantidad_a();
+            int tot = valor_armas*cantidad_armas;
+            //System.out.println("Valores_a: "+valores_a[0]+" "+valores_a[1]+" "+valores_a[2]);
+            //System.out.println("Valores_e: "+valores_e[0]+" "+valores_e[1]+" "+valores_e[2]);
+            //System.out.println("Valores_c: "+valores_c[0]+" "+valores_c[1]+" "+valores_c[2]);
             System.out.println(tot);
-            Tot_compra_armas.setText(""+tot);    
+            Tot_compra_armas.setText(""+tot);
+            
         }catch(Exception e){
         }
             // TODO add your handling code here:
@@ -1376,8 +1399,6 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton55;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1408,7 +1429,6 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1441,6 +1461,9 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
     private javax.swing.JTextPane jTextPane8;
+    public javax.swing.JLabel lab_espada_1;
+    public javax.swing.JLabel lab_espada_2;
+    public javax.swing.JLabel lab_espada_3;
     private javax.swing.JProgressBar magia_stats;
     private javax.swing.JLabel pts_escudo;
     private javax.swing.JLabel pts_fuerza;
