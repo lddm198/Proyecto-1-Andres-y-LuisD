@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto_1.origin;
+import java.util.Arrays;
 
 /**
  *
@@ -12,11 +13,11 @@ package proyecto_1.origin;
 public class Tienda extends javax.swing.JInternalFrame { 
     
     public int hp=40,escudo=25,fuerza=30,magia=10,velocidad=30;
-    public int valores_a1,valores_a2, valores_a3;
+    public int[] valores_a;
     public int[] valores_e;
     public int[] valores_c;
     
-    public Tienda() {
+    public Tienda(int[] val_a, int[] val_e, int[] val_c) {
         initComponents();
         
         hp_stats.setStringPainted(true);
@@ -34,33 +35,52 @@ public class Tienda extends javax.swing.JInternalFrame {
         velocidad_stats.setStringPainted(true);
         velocidad_stats.setValue(velocidad);
         
-    }
-    
-    public Tienda(int[] val_a, int[] val_e, int[] val_c){
-        initComponents();
-        
         System.out.println("Valores_a: "+val_a[0]+" "+val_a[1]+" "+val_a[2]);
         System.out.println("Valores_e: "+val_e[0]+" "+val_e[1]+" "+val_e[2]);
         System.out.println("Valores_c: "+val_c[0]+" "+val_c[1]+" "+val_c[2]);
-
-        lab_espada_1.setText("$"+val_a[0]);
-        lab_espada_2.setText("$"+val_a[1]);
-        lab_espada_2.setText("$"+val_a[2]);
+        
+        valores_a = val_a;
         valores_e = val_e;
         valores_c = val_c;
         
+        //Ordena de menor a mayor los valores del API para los objetos en la tienda
+        Arrays.sort(valores_a);
+        Arrays.sort(valores_e);
+        Arrays.sort(valores_c);
+
+        lab_espada_1.setText("$"+valores_a[0]);
+        lab_espada_2.setText("$"+valores_a[1]);
+        lab_espada_3.setText("$"+valores_a[2]);
+        lab_ven_espada1.setText("$"+valores_a[0]);
+        lab_ven_espada2.setText("$"+valores_a[1]);
+        lab_ven_espada3.setText("$"+valores_a[2]);
+        
+        lab_escudo_1.setText("$"+valores_e[0]);
+        lab_escudo_2.setText("$"+valores_e[1]);
+        lab_escudo_3.setText("$"+valores_e[2]);
+        lab_ven_escudo1.setText("$"+valores_e[0]);
+        lab_ven_escudo2.setText("$"+valores_e[1]);
+        lab_ven_escudo3.setText("$"+valores_e[2]);
+        
+        lab_consumible_1.setText("$"+valores_c[0]);
+        lab_consumible_2.setText("$"+valores_c[1]);
+        lab_consumible_3.setText("$"+valores_c[2]);
+        lab_ven_consumible1.setText("$"+valores_c[0]);
+        lab_ven_consumible2.setText("$"+valores_c[1]);
+        jLabel40.setText("$"+valores_c[2]);
+        
     }
-   
+     
     public int obtener_v_armas() throws Exception{
                
         if (rb_arma_1.isSelected()){
-            return valores_a1;
+            return valores_a[0];
         }
         if (rb_arma_2.isSelected()){
-            return valores_a1;
+            return valores_a[1];
         }
         if (rb_arma_3.isSelected()){
-            return valores_a1;
+            return valores_a[2];
         }
         
         return 0;
@@ -119,7 +139,7 @@ public class Tienda extends javax.swing.JInternalFrame {
         Tot_compra_armas = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         b_comprar_armas = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        cancelar_compra = new javax.swing.JButton();
         compra_cantidad_armas = new javax.swing.JSpinner();
         jPanel2 = new javax.swing.JPanel();
         rb_escudo_1 = new javax.swing.JRadioButton();
@@ -127,16 +147,16 @@ public class Tienda extends javax.swing.JInternalFrame {
         rb_escudo_3 = new javax.swing.JRadioButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextPane4 = new javax.swing.JTextPane();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        lab_escudo_1 = new javax.swing.JLabel();
+        lab_escudo_2 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextPane5 = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextPane6 = new javax.swing.JTextPane();
-        jLabel19 = new javax.swing.JLabel();
+        lab_escudo_3 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        b_comprar_escudos = new javax.swing.JButton();
         jButton39 = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
         compra_cantidad_escudos = new javax.swing.JSpinner();
@@ -144,18 +164,18 @@ public class Tienda extends javax.swing.JInternalFrame {
         rb_consumibles_1 = new javax.swing.JRadioButton();
         rb_consumibles_2 = new javax.swing.JRadioButton();
         rb_consumibles_3 = new javax.swing.JRadioButton();
-        jLabel20 = new javax.swing.JLabel();
+        lab_consumible_1 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTextPane7 = new javax.swing.JTextPane();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTextPane8 = new javax.swing.JTextPane();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        lab_consumible_2 = new javax.swing.JLabel();
+        lab_consumible_3 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         Text = new javax.swing.JTextPane();
         jLabel45 = new javax.swing.JLabel();
         jTextField23 = new javax.swing.JTextField();
-        jButton42 = new javax.swing.JButton();
+        b_comprar_consumibles = new javax.swing.JButton();
         jButton43 = new javax.swing.JButton();
         jLabel46 = new javax.swing.JLabel();
         compra_cantidad_consumibles = new javax.swing.JSpinner();
@@ -164,9 +184,9 @@ public class Tienda extends javax.swing.JInternalFrame {
         v_rb_espada_1 = new javax.swing.JRadioButton();
         v_rb_espada_2 = new javax.swing.JRadioButton();
         v_rb_espada_3 = new javax.swing.JRadioButton();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
+        lab_ven_espada1 = new javax.swing.JLabel();
+        lab_ven_espada2 = new javax.swing.JLabel();
+        lab_ven_espada3 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         jTextField29 = new javax.swing.JTextField();
         jButton54 = new javax.swing.JButton();
@@ -175,11 +195,11 @@ public class Tienda extends javax.swing.JInternalFrame {
         compra_cantidad_armas2 = new javax.swing.JSpinner();
         jPanel5 = new javax.swing.JPanel();
         v_rb_escudo_1 = new javax.swing.JRadioButton();
-        jLabel32 = new javax.swing.JLabel();
+        lab_ven_escudo1 = new javax.swing.JLabel();
         v_rb_escudo_2 = new javax.swing.JRadioButton();
         v_rb_escudo_3 = new javax.swing.JRadioButton();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
+        lab_ven_escudo2 = new javax.swing.JLabel();
+        lab_ven_escudo3 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jTextField27 = new javax.swing.JTextField();
         jButton50 = new javax.swing.JButton();
@@ -188,9 +208,9 @@ public class Tienda extends javax.swing.JInternalFrame {
         compra_cantidad_armas3 = new javax.swing.JSpinner();
         jPanel6 = new javax.swing.JPanel();
         v_rb_consumibles_1 = new javax.swing.JRadioButton();
-        jLabel38 = new javax.swing.JLabel();
+        lab_ven_consumible1 = new javax.swing.JLabel();
         v_rb_consumibles_2 = new javax.swing.JRadioButton();
-        jLabel39 = new javax.swing.JLabel();
+        lab_ven_consumible2 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         v_rb_consumibles_3 = new javax.swing.JRadioButton();
         jLabel47 = new javax.swing.JLabel();
@@ -277,7 +297,12 @@ public class Tienda extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Cancelar");
+        cancelar_compra.setText("Cancelar");
+        cancelar_compra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelar_compraActionPerformed(evt);
+            }
+        });
 
         compra_cantidad_armas.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         compra_cantidad_armas.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -293,44 +318,41 @@ public class Tienda extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rb_arma_2)
-                                .addGap(18, 18, 18)
-                                .addComponent(lab_espada_2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rb_arma_1)
-                                .addGap(18, 18, 18)
-                                .addComponent(lab_espada_1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rb_arma_3)
-                                .addGap(18, 18, 18)
-                                .addComponent(lab_espada_3)))
-                        .addGap(0, 176, Short.MAX_VALUE))
+                        .addComponent(rb_arma_2)
+                        .addGap(18, 18, 18)
+                        .addComponent(lab_espada_2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap())
+                        .addComponent(rb_arma_3)
+                        .addGap(18, 18, 18)
+                        .addComponent(lab_espada_3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(rb_arma_1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lab_espada_1)))
+                .addGap(186, 186, 186))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(compra_cantidad_armas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(compra_cantidad_armas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Tot_compra_armas))
+                                    .addComponent(cancelar_compra))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Tot_compra_armas))
-                            .addComponent(jButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(b_comprar_armas)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(b_comprar_armas)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,14 +385,13 @@ public class Tienda extends javax.swing.JInternalFrame {
                     .addComponent(Tot_compra_armas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(cancelar_compra)
                     .addComponent(b_comprar_armas))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         lab_espada_1.getAccessibleContext().setAccessibleName("lab_espada_1");
         lab_espada_1.getAccessibleContext().setAccessibleDescription("");
-        lab_espada_1.getAccessibleContext().setAccessibleParent(null);
         lab_espada_2.getAccessibleContext().setAccessibleName("lab_espada_2");
         lab_espada_3.getAccessibleContext().setAccessibleName("lab_espada_3");
 
@@ -401,10 +422,6 @@ public class Tienda extends javax.swing.JInternalFrame {
         jTextPane4.setText("Escudo básico para conbates ocacionales, +2 Escudo");
         jScrollPane4.setViewportView(jTextPane4);
 
-        jLabel9.setText("$100");
-
-        jLabel10.setText("$150");
-
         jTextPane5.setEditable(false);
         jTextPane5.setText("Escudo reforzado, menos impacto de daño enemigo, +2 HP, +6 escudo, +1 Magia");
         jScrollPane5.setViewportView(jTextPane5);
@@ -413,13 +430,11 @@ public class Tienda extends javax.swing.JInternalFrame {
         jTextPane6.setText("Escudo blindado, los golpes rara vez serán problema, +5HP, +10 escudo, +3 Magia, +2 Velocidad");
         jScrollPane6.setViewportView(jTextPane6);
 
-        jLabel19.setText("$200");
-
         jLabel43.setText("Cantidad:");
 
         jTextField21.setText("0");
 
-        jButton3.setText("Comprar");
+        b_comprar_escudos.setText("Comprar");
 
         jButton39.setText("Cancelar");
 
@@ -436,11 +451,11 @@ public class Tienda extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rb_escudo_1)
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel9))
+                        .addComponent(lab_escudo_1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rb_escudo_2)
                         .addGap(24, 24, 24)
-                        .addComponent(jLabel10)))
+                        .addComponent(lab_escudo_2)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,7 +465,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rb_escudo_3)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel19)))
+                        .addComponent(lab_escudo_3)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -467,7 +482,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                                 .addComponent(jTextField21))
                             .addComponent(jButton39))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)))
+                        .addComponent(b_comprar_escudos)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -476,19 +491,19 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_escudo_1)
-                    .addComponent(jLabel9))
+                    .addComponent(lab_escudo_1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_escudo_2)
-                    .addComponent(jLabel10))
+                    .addComponent(lab_escudo_2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_escudo_3)
-                    .addComponent(jLabel19))
+                    .addComponent(lab_escudo_3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
@@ -502,7 +517,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton39)
-                    .addComponent(jButton3))
+                    .addComponent(b_comprar_escudos))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -529,8 +544,6 @@ public class Tienda extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel20.setText("$20");
-
         jTextPane7.setEditable(false);
         jTextPane7.setText("Recuperar  vida nunca fue tan fácil, +3 HP");
         jScrollPane7.setViewportView(jTextPane7);
@@ -538,10 +551,6 @@ public class Tienda extends javax.swing.JInternalFrame {
         jTextPane8.setEditable(false);
         jTextPane8.setText("No tienes refuerzos? Tranquilo... +3 Escudo");
         jScrollPane8.setViewportView(jTextPane8);
-
-        jLabel23.setText("$50");
-
-        jLabel24.setText("$100");
 
         Text.setEditable(false);
         Text.setText("Sientes ese cosquilleo? Es magia. +6 Magia");
@@ -551,7 +560,7 @@ public class Tienda extends javax.swing.JInternalFrame {
 
         jTextField23.setText("0");
 
-        jButton42.setText("Comprar");
+        b_comprar_consumibles.setText("Comprar");
 
         jButton43.setText("Cancelar");
 
@@ -570,15 +579,15 @@ public class Tienda extends javax.swing.JInternalFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(rb_consumibles_3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel24))
+                                .addComponent(lab_consumible_3))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(rb_consumibles_1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel20))
+                                .addComponent(lab_consumible_1))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(rb_consumibles_2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel23)))
+                                .addComponent(lab_consumible_2)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
@@ -599,7 +608,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                                 .addComponent(jTextField23))
                             .addComponent(jButton43))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton42)))
+                        .addComponent(b_comprar_consumibles)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -608,19 +617,19 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_consumibles_1)
-                    .addComponent(jLabel20))
+                    .addComponent(lab_consumible_1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_consumibles_2)
-                    .addComponent(jLabel23))
+                    .addComponent(lab_consumible_2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_consumibles_3)
-                    .addComponent(jLabel24))
+                    .addComponent(lab_consumible_3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
@@ -634,7 +643,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton43)
-                    .addComponent(jButton42))
+                    .addComponent(b_comprar_consumibles))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -663,12 +672,6 @@ public class Tienda extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel26.setText("$100");
-
-        jLabel27.setText("$125");
-
-        jLabel28.setText("$175");
-
         jLabel51.setText("Cantidad:");
 
         jTextField29.setText("0");
@@ -695,16 +698,16 @@ public class Tienda extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(v_rb_espada_1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel26))
+                        .addComponent(lab_ven_espada1))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(v_rb_espada_2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel27))
+                        .addComponent(lab_ven_espada2))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(v_rb_espada_3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel28)))
-                .addGap(0, 180, Short.MAX_VALUE))
+                        .addComponent(lab_ven_espada3)))
+                .addGap(0, 204, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -729,15 +732,15 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_espada_1)
-                    .addComponent(jLabel26))
+                    .addComponent(lab_ven_espada1))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_espada_2)
-                    .addComponent(jLabel27))
+                    .addComponent(lab_ven_espada2))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_espada_3)
-                    .addComponent(jLabel28))
+                    .addComponent(lab_ven_espada3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel51)
@@ -750,7 +753,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton55)
                     .addComponent(jButton54))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Armas", jPanel4);
@@ -761,8 +764,6 @@ public class Tienda extends javax.swing.JInternalFrame {
                 v_rb_escudo_1ActionPerformed(evt);
             }
         });
-
-        jLabel32.setText("$25");
 
         v_rb_escudo_2.setText("Escudo nvl 14");
         v_rb_escudo_2.addActionListener(new java.awt.event.ActionListener() {
@@ -777,10 +778,6 @@ public class Tienda extends javax.swing.JInternalFrame {
                 v_rb_escudo_3ActionPerformed(evt);
             }
         });
-
-        jLabel33.setText("$10");
-
-        jLabel34.setText("$5");
 
         jLabel49.setText("Cantidad:");
 
@@ -803,15 +800,15 @@ public class Tienda extends javax.swing.JInternalFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(v_rb_escudo_1)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel32))
+                        .addComponent(lab_ven_escudo1))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(v_rb_escudo_2)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel33))
+                        .addComponent(lab_ven_escudo2))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(v_rb_escudo_3)
                         .addGap(21, 21, 21)
-                        .addComponent(jLabel34))
+                        .addComponent(lab_ven_escudo3))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -835,15 +832,15 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_escudo_1)
-                    .addComponent(jLabel32))
+                    .addComponent(lab_ven_escudo1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_escudo_2)
-                    .addComponent(jLabel33))
+                    .addComponent(lab_ven_escudo2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_escudo_3)
-                    .addComponent(jLabel34))
+                    .addComponent(lab_ven_escudo3))
                 .addGap(49, 49, 49)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel49)
@@ -856,7 +853,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton51)
                     .addComponent(jButton50))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Escudos", jPanel5);
@@ -868,16 +865,12 @@ public class Tienda extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel38.setText("$1");
-
         v_rb_consumibles_2.setText("Posion de escudo");
         v_rb_consumibles_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 v_rb_consumibles_2ActionPerformed(evt);
             }
         });
-
-        jLabel39.setText("$1");
 
         jLabel40.setText("$2");
 
@@ -914,11 +907,11 @@ public class Tienda extends javax.swing.JInternalFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(v_rb_consumibles_1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel38))
+                        .addComponent(lab_ven_consumible1))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(v_rb_consumibles_2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel39))
+                        .addComponent(lab_ven_consumible2))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(v_rb_consumibles_3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -940,11 +933,11 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_consumibles_1)
-                    .addComponent(jLabel38))
+                    .addComponent(lab_ven_consumible1))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_consumibles_2)
-                    .addComponent(jLabel39))
+                    .addComponent(lab_ven_consumible2))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(v_rb_consumibles_3)
@@ -961,7 +954,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton47)
                     .addComponent(jButton46))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Consumibles", jPanel6);
@@ -1356,13 +1349,12 @@ public class Tienda extends javax.swing.JInternalFrame {
 
     private void compra_cantidad_armasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_compra_cantidad_armasStateChanged
         try {
+            Tot_compra_armas.setText("0");
+             
             int valor_armas = obtener_v_armas();
             int cantidad_armas = obtener_cantidad_a();
             int tot = valor_armas*cantidad_armas;
-            //System.out.println("Valores_a: "+valores_a[0]+" "+valores_a[1]+" "+valores_a[2]);
-            //System.out.println("Valores_e: "+valores_e[0]+" "+valores_e[1]+" "+valores_e[2]);
-            //System.out.println("Valores_c: "+valores_c[0]+" "+valores_c[1]+" "+valores_c[2]);
-            System.out.println(tot);
+
             Tot_compra_armas.setText(""+tot);
             
         }catch(Exception e){
@@ -1370,13 +1362,23 @@ public class Tienda extends javax.swing.JInternalFrame {
             // TODO add your handling code here:
     }//GEN-LAST:event_compra_cantidad_armasStateChanged
 
+    private void cancelar_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar_compraActionPerformed
+        
+        compra_cantidad_armas.setValue(0);
+        Tot_compra_armas.setText("0");
+        
+    }//GEN-LAST:event_cancelar_compraActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField MoonPoints;
     private javax.swing.JTextPane Text;
     private javax.swing.JTextField Tot_compra_armas;
     private javax.swing.JButton b_comprar_armas;
+    private javax.swing.JButton b_comprar_consumibles;
+    private javax.swing.JButton b_comprar_escudos;
     private javax.swing.JButton b_equipar_objetos;
+    private javax.swing.JButton cancelar_compra;
     private javax.swing.JSpinner compra_cantidad_armas;
     private javax.swing.JSpinner compra_cantidad_armas1;
     private javax.swing.JSpinner compra_cantidad_armas2;
@@ -1386,10 +1388,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JProgressBar escudo_stats;
     private javax.swing.JProgressBar fuerza_stats;
     private javax.swing.JProgressBar hp_stats;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton39;
-    private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
@@ -1398,22 +1397,9 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton54;
     private javax.swing.JButton jButton55;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel43;
@@ -1429,7 +1415,6 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1461,9 +1446,23 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
     private javax.swing.JTextPane jTextPane8;
+    private javax.swing.JLabel lab_consumible_1;
+    private javax.swing.JLabel lab_consumible_2;
+    private javax.swing.JLabel lab_consumible_3;
+    private javax.swing.JLabel lab_escudo_1;
+    private javax.swing.JLabel lab_escudo_2;
+    private javax.swing.JLabel lab_escudo_3;
     public javax.swing.JLabel lab_espada_1;
     public javax.swing.JLabel lab_espada_2;
     public javax.swing.JLabel lab_espada_3;
+    private javax.swing.JLabel lab_ven_consumible1;
+    private javax.swing.JLabel lab_ven_consumible2;
+    private javax.swing.JLabel lab_ven_escudo1;
+    private javax.swing.JLabel lab_ven_escudo2;
+    private javax.swing.JLabel lab_ven_escudo3;
+    private javax.swing.JLabel lab_ven_espada1;
+    private javax.swing.JLabel lab_ven_espada2;
+    private javax.swing.JLabel lab_ven_espada3;
     private javax.swing.JProgressBar magia_stats;
     private javax.swing.JLabel pts_escudo;
     private javax.swing.JLabel pts_fuerza;
