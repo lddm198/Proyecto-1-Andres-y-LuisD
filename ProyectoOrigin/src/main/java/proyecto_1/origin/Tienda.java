@@ -18,7 +18,7 @@ public class Tienda extends javax.swing.JInternalFrame {
     public int[] valores_a;
     public int[] valores_e;
     public int[] valores_c;
-    public String arma;
+    public String elemento;
     
     public Tienda(int[] val_a, int[] val_e, int[] val_c) {
         initComponents();
@@ -73,28 +73,20 @@ public class Tienda extends javax.swing.JInternalFrame {
         jLabel40.setText("$"+valores_c[2]);
         
     }
-    
-    public DefaultListModel<String> modelo_a(){
-
-       DefaultListModel<String> modelo = (DefaultListModel<String>) jList_armas.getModel();
-
-       modelo.addElement(arma);
-        
-       return null;
-    }
-     
+    DefaultListModel<String> modelo = new DefaultListModel<>();
+       
     public int obtener_v_armas() throws Exception{
                
         if (rb_arma_1.isSelected()){
-            arma = "Espada nvl 5";
+            elemento = "Espada nvl 5";
             return valores_a[0];
         }
         if (rb_arma_2.isSelected()){
-            arma = "Espada nvl 10";
+            elemento = "Espada nvl 10";
             return valores_a[1];
         }
         if (rb_arma_3.isSelected()){
-            arma = "Espada nvl 30";
+            elemento = "Espada nvl 30";
             return valores_a[2];
         }
         
@@ -103,24 +95,30 @@ public class Tienda extends javax.swing.JInternalFrame {
     }
     public int obtener_v_escudos() throws Exception{
         if (rb_escudo_1.isSelected()){
+            elemento = "Escudo nvl 7";
             return valores_e[0];
         }
         if (rb_escudo_2.isSelected()){
+            elemento = "Escudo nvl 14";
             return valores_e[1];
         }
         if (rb_escudo_3.isSelected()){
+            elemento = "Escudo nvl 28";
             return valores_e[2];
         }
         return 0;
     }
     public int obtener_v_consumibles() throws Exception{
         if (rb_consumibles_1.isSelected()){
+            elemento = "Poción de vida";
             return valores_c[0];
         }
         if (rb_consumibles_2.isSelected()){
+            elemento = "Poción de escudo";
             return valores_c[1];
         }
         if (rb_consumibles_3.isSelected()){
+            elemento = "Poción de magia";
             return valores_c[2];
         }
         return 0;
@@ -334,7 +332,7 @@ public class Tienda extends javax.swing.JInternalFrame {
             }
         });
 
-        compra_cantidad_armas.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        compra_cantidad_armas.setModel(new javax.swing.SpinnerNumberModel(0, 0, 1, 1));
         compra_cantidad_armas.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 compra_cantidad_armasStateChanged(evt);
@@ -480,7 +478,7 @@ public class Tienda extends javax.swing.JInternalFrame {
 
         jLabel44.setText("Total:");
 
-        compra_cantidad_escudos.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        compra_cantidad_escudos.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         compra_cantidad_escudos.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 compra_cantidad_escudosStateChanged(evt);
@@ -621,7 +619,7 @@ public class Tienda extends javax.swing.JInternalFrame {
 
         jLabel46.setText("Total:");
 
-        compra_cantidad_consumibles.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        compra_cantidad_consumibles.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         compra_cantidad_consumibles.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 compra_cantidad_consumiblesStateChanged(evt);
@@ -1023,7 +1021,7 @@ public class Tienda extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Velocidad");
 
-        MoonPoints.setText("20000");
+        MoonPoints.setText("10000");
         MoonPoints.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MoonPointsActionPerformed(evt);
@@ -1048,6 +1046,7 @@ public class Tienda extends javax.swing.JInternalFrame {
             }
         });
 
+        jList_armas.setModel(modelo);
         jScrollPane10.setViewportView(jList_armas);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -1147,6 +1146,90 @@ public class Tienda extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public void modelo_añadir_a(){
+        int moon_disponible;
+        int total;
+        moon_disponible = Integer.parseInt(MoonPoints.getText());
+        total = Integer.parseInt(Tot_compra_armas.getText());                   
+        int x = 0;
+
+        for(int i=0; i < jList_armas.getModel().getSize(); i++){
+
+            String inv = jList_armas.getModel().getElementAt(i);
+
+            if(inv.equals(elemento)){
+
+                JOptionPane.showMessageDialog(null, "Usted ya ha comprado este objeto!", "Objeto en el Inventario", JOptionPane.ERROR_MESSAGE);
+                compra_cantidad_armas.setValue(0);
+                Tot_compra_armas.setText("0");
+                x = 1;
+                break;
+
+            }                 
+        }
+
+        if(x == 0){
+
+                modelo.addElement(elemento);
+
+                total = moon_disponible-total;
+                MoonPoints.setText(""+total);
+                compra_cantidad_armas.setValue(0);
+                Tot_compra_armas.setText("0");
+
+            }
+    }
+     
+    public void modelo_añadir_e(){
+        int moon_disponible;
+        int total;
+        moon_disponible = Integer.parseInt(MoonPoints.getText());
+        total = Integer.parseInt(Tot_compra_escudos.getText());
+        
+        try{
+            int val = obtener_v_escudos();
+            int cont = total/val;
+
+            for(int i=0; i<cont; i++){
+
+                modelo.addElement(elemento);
+
+            }
+            total = moon_disponible-total;
+            MoonPoints.setText(""+total);
+            compra_cantidad_escudos.setValue(0);
+            Tot_compra_escudos.setText("0");
+            
+        }catch(Exception e){
+        }
+    }
+    
+    public void modelo_añadir_c(){
+        int moon_disponible;
+        int total;
+        moon_disponible = Integer.parseInt(MoonPoints.getText());
+        total = Integer.parseInt(Tot_compra_consumibles.getText());
+
+        try{
+            int val = obtener_v_consumibles();
+            int cont = total/val;
+
+            for(int i=0; i<cont; i++){
+
+                modelo.addElement(elemento);
+
+            }
+            total = moon_disponible-total;
+            MoonPoints.setText(""+total);
+            compra_cantidad_consumibles.setValue(0);
+            Tot_compra_consumibles.setText("0");
+            
+        }catch(Exception e){
+        }
+ 
+    }
+    
     private void rb_arma_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_1ActionPerformed
 
         if(rb_arma_1.isSelected()){
@@ -1224,13 +1307,13 @@ public class Tienda extends javax.swing.JInternalFrame {
         
         if(moon_disponible>total){
             
-            total = moon_disponible-total;
-            MoonPoints.setText(""+total);
+            modelo_añadir_a();
+            
         }
         else{
             JOptionPane.showMessageDialog(null, "Usted no posee suficientes MoonPoints!", "Fondos Insuficientes", JOptionPane.ERROR_MESSAGE);
         }
-         modelo_a();
+         
         
         
     }//GEN-LAST:event_b_comprar_armasActionPerformed
@@ -1336,16 +1419,25 @@ public class Tienda extends javax.swing.JInternalFrame {
             rb_consumibles_1.setSelected(false);
             rb_consumibles_3.setSelected(false);
 
-            escudo_stats.setValue(escudo+3);
+            escudo_stats.setValue(escudo+6);
             pts_escudo.setText("+6");
         }
     }//GEN-LAST:event_rb_consumibles_2ActionPerformed
 
     private void rb_consumibles_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_consumibles_3ActionPerformed
         
+        pts_hp.setText("");
+        pts_escudo.setText("");
+        pts_fuerza.setText("");
+        pts_magia.setText("");
+        pts_velocidad.setText("");
+        
         if (rb_consumibles_3.isSelected()){
             rb_consumibles_2.setSelected(false);
             rb_consumibles_1.setSelected(false);
+            
+        magia_stats.setValue(magia+6);
+        pts_magia.setText("+6");
         }        
     }//GEN-LAST:event_rb_consumibles_3ActionPerformed
 
@@ -1469,13 +1561,13 @@ public class Tienda extends javax.swing.JInternalFrame {
         
         if(moon_disponible>total){
             
-            total = moon_disponible-total;
-            MoonPoints.setText(""+total);
+            modelo_añadir_e();
+            
         }
         else{
             JOptionPane.showMessageDialog(null, "Usted no posee suficientes MoonPoints!", "Fondos Insuficientes", JOptionPane.ERROR_MESSAGE);
         }
-         modelo_a();
+         
     }//GEN-LAST:event_b_comprar_escudosActionPerformed
 
     private void cancelar_compra_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar_compra_eActionPerformed
@@ -1500,14 +1592,14 @@ public class Tienda extends javax.swing.JInternalFrame {
         total = Integer.parseInt(Tot_compra_consumibles.getText());
         
         if(moon_disponible>total){
+
+            modelo_añadir_c();
             
-            total = moon_disponible-total;
-            MoonPoints.setText(""+total);
         }
         else{
             JOptionPane.showMessageDialog(null, "Usted no posee suficientes MoonPoints!", "Fondos Insuficientes", JOptionPane.ERROR_MESSAGE);
         }
-         modelo_a();
+         
          
     }//GEN-LAST:event_b_comprar_consumiblesActionPerformed
 
