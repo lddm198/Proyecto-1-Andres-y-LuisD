@@ -40,8 +40,6 @@ public class Mapa extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         m_tienda = new javax.swing.JMenuItem();
-        m_inventario = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1062, 688));
@@ -72,18 +70,7 @@ public class Mapa extends javax.swing.JFrame {
         });
         jMenu1.add(m_tienda);
 
-        m_inventario.setText("Inventario");
-        m_inventario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                m_inventarioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(m_inventario);
-
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -108,12 +95,6 @@ public class Mapa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_m_tiendaActionPerformed
 
-    private void m_inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_inventarioActionPerformed
-        mapa.add(inventario);
-        inventario.show();
-        
-    }//GEN-LAST:event_m_inventarioActionPerformed
-
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
 
     }//GEN-LAST:event_jMenu1ActionPerformed
@@ -133,9 +114,7 @@ public class Mapa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem m_inventario;
     private javax.swing.JMenuItem m_tienda;
     private javax.swing.JDesktopPane mapa;
     // End of variables declaration//GEN-END:variables

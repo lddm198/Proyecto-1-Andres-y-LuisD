@@ -54,26 +54,19 @@ public class Tienda extends javax.swing.JInternalFrame {
         lab_espada_1.setText("$"+valores_a[0]);
         lab_espada_2.setText("$"+valores_a[1]);
         lab_espada_3.setText("$"+valores_a[2]);
-        lab_ven_espada1.setText("$"+valores_a[0]);
-        lab_ven_espada2.setText("$"+valores_a[1]);
-        lab_ven_espada3.setText("$"+valores_a[2]);
         
         lab_escudo_1.setText("$"+valores_e[0]);
         lab_escudo_2.setText("$"+valores_e[1]);
         lab_escudo_3.setText("$"+valores_e[2]);
-        lab_ven_escudo1.setText("$"+valores_e[0]);
-        lab_ven_escudo2.setText("$"+valores_e[1]);
-        lab_ven_escudo3.setText("$"+valores_e[2]);
         
         lab_consumible_1.setText("$"+valores_c[0]);
         lab_consumible_2.setText("$"+valores_c[1]);
         lab_consumible_3.setText("$"+valores_c[2]);
-        lab_ven_consumible1.setText("$"+valores_c[0]);
-        lab_ven_consumible2.setText("$"+valores_c[1]);
-        jLabel40.setText("$"+valores_c[2]);
         
     }
+    
     DefaultListModel<String> modelo = new DefaultListModel<>();
+    DefaultListModel<String> modelo2 = new DefaultListModel<>();
        
     public int obtener_v_armas() throws Exception{
                
@@ -204,46 +197,6 @@ public class Tienda extends javax.swing.JInternalFrame {
         cancelar_compra_c = new javax.swing.JButton();
         jLabel46 = new javax.swing.JLabel();
         compra_cantidad_consumibles = new javax.swing.JSpinner();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jPanel4 = new javax.swing.JPanel();
-        v_rb_espada_1 = new javax.swing.JRadioButton();
-        v_rb_espada_2 = new javax.swing.JRadioButton();
-        v_rb_espada_3 = new javax.swing.JRadioButton();
-        lab_ven_espada1 = new javax.swing.JLabel();
-        lab_ven_espada2 = new javax.swing.JLabel();
-        lab_ven_espada3 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jTextField29 = new javax.swing.JTextField();
-        jButton54 = new javax.swing.JButton();
-        jButton55 = new javax.swing.JButton();
-        jLabel52 = new javax.swing.JLabel();
-        compra_cantidad_armas2 = new javax.swing.JSpinner();
-        jPanel5 = new javax.swing.JPanel();
-        v_rb_escudo_1 = new javax.swing.JRadioButton();
-        lab_ven_escudo1 = new javax.swing.JLabel();
-        v_rb_escudo_2 = new javax.swing.JRadioButton();
-        v_rb_escudo_3 = new javax.swing.JRadioButton();
-        lab_ven_escudo2 = new javax.swing.JLabel();
-        lab_ven_escudo3 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jTextField27 = new javax.swing.JTextField();
-        jButton50 = new javax.swing.JButton();
-        jButton51 = new javax.swing.JButton();
-        jLabel50 = new javax.swing.JLabel();
-        compra_cantidad_armas3 = new javax.swing.JSpinner();
-        jPanel6 = new javax.swing.JPanel();
-        v_rb_consumibles_1 = new javax.swing.JRadioButton();
-        lab_ven_consumible1 = new javax.swing.JLabel();
-        v_rb_consumibles_2 = new javax.swing.JRadioButton();
-        lab_ven_consumible2 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        v_rb_consumibles_3 = new javax.swing.JRadioButton();
-        jLabel47 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
-        jButton46 = new javax.swing.JButton();
-        jButton47 = new javax.swing.JButton();
-        jLabel48 = new javax.swing.JLabel();
-        compra_cantidad_armas1 = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
         MoonPoints = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -265,8 +218,14 @@ public class Tienda extends javax.swing.JInternalFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         jList_armas = new javax.swing.JList<>();
         jLabel8 = new javax.swing.JLabel();
+        b_venta = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jList_equipado = new javax.swing.JList<>();
+        jLabel9 = new javax.swing.JLabel();
+        b_desequipar = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setFrameIcon(null);
 
         jScrollPane1.setToolTipText("Espada perfecta para enemigos basicos, aumenta dos puntos de vida");
@@ -300,11 +259,11 @@ public class Tienda extends javax.swing.JInternalFrame {
         jScrollPane2.setToolTipText("Espada perfecta para conbates más complejos");
 
         jTextPane2.setEditable(false);
-        jTextPane2.setText("Espada perfecta para combates mas complejos, aumenta +5HP, +20 escudo, +2 magía");
+        jTextPane2.setText("Espada perfecta para combates más complejos, aumenta +5HP, +20 escudo, +2 magia");
         jScrollPane2.setViewportView(jTextPane2);
 
         jTextPane3.setEditable(false);
-        jTextPane3.setText("Espada perfecta para convatir Jefes, agil y con buen daño. +20HP, +5 Magia, + 3 Velocidad");
+        jTextPane3.setText("Espada perfecta para combatir Jefes, ágil y con buen daño. +20HP, +5 Magia, + 3 Velocidad");
         jScrollPane3.setViewportView(jTextPane3);
 
         jLabel15.setText("Cantidad:");
@@ -415,7 +374,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelar_compra_a)
                     .addComponent(b_comprar_armas))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         lab_espada_1.getAccessibleContext().setAccessibleName("lab_espada_1");
@@ -447,7 +406,7 @@ public class Tienda extends javax.swing.JInternalFrame {
         });
 
         jTextPane4.setEditable(false);
-        jTextPane4.setText("Escudo básico para conbates ocacionales, +2 Escudo");
+        jTextPane4.setText("Escudo básico para combates ocacionales, +2 Escudo");
         jScrollPane4.setViewportView(jTextPane4);
 
         jTextPane5.setEditable(false);
@@ -702,322 +661,12 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelar_compra_c)
                     .addComponent(b_comprar_consumibles))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Consumibles", jPanel3);
 
         jTabbedPane1.addTab("Compra", jTabbedPane2);
-
-        v_rb_espada_1.setText("Espada nvl 5");
-        v_rb_espada_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_espada_1ActionPerformed(evt);
-            }
-        });
-
-        v_rb_espada_2.setText("Espada nvl 10");
-        v_rb_espada_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_espada_2ActionPerformed(evt);
-            }
-        });
-
-        v_rb_espada_3.setText("Espada nv 30");
-        v_rb_espada_3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_espada_3ActionPerformed(evt);
-            }
-        });
-
-        jLabel51.setText("Cantidad:");
-
-        jTextField29.setText("0");
-
-        jButton54.setText("Vender");
-        jButton54.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton54ActionPerformed(evt);
-            }
-        });
-
-        jButton55.setText("Cancelar");
-
-        jLabel52.setText("Total:");
-
-        compra_cantidad_armas2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(v_rb_espada_1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lab_ven_espada1))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(v_rb_espada_2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lab_ven_espada2))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(v_rb_espada_3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lab_ven_espada3)))
-                .addGap(0, 204, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton55)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton54))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel52)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField29))
-                            .addComponent(jLabel51))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(compra_cantidad_armas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_espada_1)
-                    .addComponent(lab_ven_espada1))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_espada_2)
-                    .addComponent(lab_ven_espada2))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_espada_3)
-                    .addComponent(lab_ven_espada3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel51)
-                    .addComponent(compra_cantidad_armas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel52)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton55)
-                    .addComponent(jButton54))
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
-
-        jTabbedPane3.addTab("Armas", jPanel4);
-
-        v_rb_escudo_1.setText("Escudo nvl 7");
-        v_rb_escudo_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_escudo_1ActionPerformed(evt);
-            }
-        });
-
-        v_rb_escudo_2.setText("Escudo nvl 14");
-        v_rb_escudo_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_escudo_2ActionPerformed(evt);
-            }
-        });
-
-        v_rb_escudo_3.setText("Escudo nvl 28");
-        v_rb_escudo_3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_escudo_3ActionPerformed(evt);
-            }
-        });
-
-        jLabel49.setText("Cantidad:");
-
-        jTextField27.setText("0");
-
-        jButton50.setText("Comprar");
-
-        jButton51.setText("Cancelar");
-
-        jLabel50.setText("Total:");
-
-        compra_cantidad_armas3.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(v_rb_escudo_1)
-                        .addGap(18, 18, 18)
-                        .addComponent(lab_ven_escudo1))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(v_rb_escudo_2)
-                        .addGap(18, 18, 18)
-                        .addComponent(lab_ven_escudo2))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(v_rb_escudo_3)
-                        .addGap(21, 21, 21)
-                        .addComponent(lab_ven_escudo3))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel49)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(compra_cantidad_armas3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel50)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jButton51)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton50)))))
-                .addContainerGap(133, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_escudo_1)
-                    .addComponent(lab_ven_escudo1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_escudo_2)
-                    .addComponent(lab_ven_escudo2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_escudo_3)
-                    .addComponent(lab_ven_escudo3))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel49)
-                    .addComponent(compra_cantidad_armas3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel50)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton51)
-                    .addComponent(jButton50))
-                .addContainerGap(156, Short.MAX_VALUE))
-        );
-
-        jTabbedPane3.addTab("Escudos", jPanel5);
-
-        v_rb_consumibles_1.setText("Posion de vida");
-        v_rb_consumibles_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_consumibles_1ActionPerformed(evt);
-            }
-        });
-
-        v_rb_consumibles_2.setText("Posion de escudo");
-        v_rb_consumibles_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_consumibles_2ActionPerformed(evt);
-            }
-        });
-
-        jLabel40.setText("$2");
-
-        v_rb_consumibles_3.setText("Posion de Magia");
-        v_rb_consumibles_3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                v_rb_consumibles_3ActionPerformed(evt);
-            }
-        });
-
-        jLabel47.setText("Cantidad:");
-
-        jTextField25.setText("0");
-
-        jButton46.setText("Comprar");
-
-        jButton47.setText("Cancelar");
-
-        jLabel48.setText("Total:");
-
-        compra_cantidad_armas1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton47)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton46))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(v_rb_consumibles_1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lab_ven_consumible1))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(v_rb_consumibles_2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lab_ven_consumible2))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(v_rb_consumibles_3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel40))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel48)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField25))
-                            .addComponent(jLabel47))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(compra_cantidad_armas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_consumibles_1)
-                    .addComponent(lab_ven_consumible1))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_consumibles_2)
-                    .addComponent(lab_ven_consumible2))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(v_rb_consumibles_3)
-                    .addComponent(jLabel40))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel47)
-                    .addComponent(compra_cantidad_armas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel48)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton47)
-                    .addComponent(jButton46))
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
-
-        jTabbedPane3.addTab("Consumibles", jPanel6);
-
-        jTabbedPane1.addTab("Venta", jTabbedPane3);
 
         jLabel6.setText("Velocidad");
 
@@ -1038,6 +687,8 @@ public class Tienda extends javax.swing.JInternalFrame {
 
         jLabel1.setText("HP");
 
+        hp_stats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         b_equipar_objetos.setText("Equipar");
         b_equipar_objetos.setToolTipText("");
         b_equipar_objetos.addActionListener(new java.awt.event.ActionListener() {
@@ -1052,6 +703,26 @@ public class Tienda extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Inventario");
 
+        b_venta.setText("Vender");
+        b_venta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_ventaActionPerformed(evt);
+            }
+        });
+
+        jList_equipado.setModel(modelo2);
+        jScrollPane11.setViewportView(jList_equipado);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setText("Equipado");
+
+        b_desequipar.setText("Desequipar");
+        b_desequipar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_desequiparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1060,46 +731,56 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(MoonPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(196, 196, 196)
-                                .addComponent(b_equipar_objetos))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
+                                .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(pts_hp)
-                                            .addComponent(pts_escudo)
-                                            .addComponent(pts_fuerza)
-                                            .addComponent(pts_magia)
-                                            .addComponent(pts_velocidad))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(hp_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(escudo_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(fuerza_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(magia_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(velocidad_stats, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel5))
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel1)))))
+                                    .addComponent(pts_hp)
+                                    .addComponent(pts_escudo)
+                                    .addComponent(pts_fuerza)
+                                    .addComponent(pts_magia)
+                                    .addComponent(pts_velocidad))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(hp_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(escudo_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fuerza_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(magia_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(velocidad_stats, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5))
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(206, 206, 206)
-                                .addComponent(jLabel8)))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(b_equipar_objetos)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b_venta))
+                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(b_desequipar)
+                                .addGap(24, 24, 24))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(98, 98, 98)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(MoonPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1108,13 +789,20 @@ public class Tienda extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MoonPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(b_equipar_objetos)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_venta)
+                    .addComponent(b_equipar_objetos)
+                    .addComponent(b_desequipar))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(hp_stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1159,6 +847,21 @@ public class Tienda extends javax.swing.JInternalFrame {
             String inv = jList_armas.getModel().getElementAt(i);
 
             if(inv.equals(elemento)){
+
+                JOptionPane.showMessageDialog(null, "Usted ya ha comprado este objeto!", "Objeto en el Inventario", JOptionPane.ERROR_MESSAGE);
+                compra_cantidad_armas.setValue(0);
+                Tot_compra_armas.setText("0");
+                x = 1;
+                break;
+
+            }                 
+        }
+        
+        for(int i=0; i < jList_equipado.getModel().getSize(); i++){
+
+            String equ = jList_equipado.getModel().getElementAt(i);
+
+            if(equ.equals(elemento)){
 
                 JOptionPane.showMessageDialog(null, "Usted ya ha comprado este objeto!", "Objeto en el Inventario", JOptionPane.ERROR_MESSAGE);
                 compra_cantidad_armas.setValue(0);
@@ -1230,95 +933,167 @@ public class Tienda extends javax.swing.JInternalFrame {
  
     }
     
-    private void rb_arma_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_1ActionPerformed
-
-        if(rb_arma_1.isSelected()){
+    private void MoonPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoonPointsActionPerformed
+        MoonPoints.setEnabled(false);                
+    }//GEN-LAST:event_MoonPointsActionPerformed
+        
+    private void b_equipar_objetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_equipar_objetosActionPerformed
+       
+        String seleccion = jList_armas.getSelectedValue();
+        int ind_selec = jList_armas.getSelectedIndex();
+        hp = hp_stats.getValue();
+        escudo = escudo_stats.getValue();
+        magia = magia_stats.getValue();
+        fuerza = fuerza_stats.getValue();
+        velocidad = velocidad_stats.getValue();
+        
+        if(seleccion.charAt(2) == 'p'){
             
-            rb_arma_2.setSelected(false);
-            rb_arma_3.setSelected(false);
-           
-            pts_hp.setText("");
-            pts_escudo.setText("");
-            pts_fuerza.setText("");
-            pts_magia.setText("");
-            pts_velocidad.setText("");
+            modelo2.addElement(seleccion);
+            modelo.removeElementAt(ind_selec);
             
-            hp_stats.setValue(hp+2);
-            pts_hp.setText("+2");
-                 
+            if(seleccion.charAt(11) == '5'){
+                hp += 2;
+                hp_stats.setValue(hp);
+                
+            }
+            
+            if(seleccion.charAt(11) == '1'){
+                hp += 5;
+                escudo += 20;
+                magia += 2;
+                
+                hp_stats.setValue(hp);               
+                escudo_stats.setValue(escudo);
+                magia_stats.setValue(magia);               
+            }
+            
+            if(seleccion.charAt(11) == '3'){
+                hp += 20;
+                velocidad += 3;
+                magia += 5;
+                
+                hp_stats.setValue(hp);
+                velocidad_stats.setValue(velocidad);
+                magia_stats.setValue(magia);               
+            }
+                                                    
         }
         
-    }//GEN-LAST:event_rb_arma_1ActionPerformed
-
-    private void rb_arma_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_2ActionPerformed
-
-        if(rb_arma_2.isSelected()){
-            rb_arma_1.setSelected(false);
-            rb_arma_3.setSelected(false);
+        if(seleccion.charAt(3) == 'u'){
             
-            pts_hp.setText("");
-            pts_escudo.setText("");
-            pts_fuerza.setText("");
-            pts_magia.setText("");
-            pts_velocidad.setText("");
+            modelo2.addElement(seleccion);
+            modelo.removeElementAt(ind_selec);
             
-            hp_stats.setValue(hp+5);
-            pts_hp.setText("+5");
-
-            escudo_stats.setValue(escudo+20);
-            pts_escudo.setText("+20");
-
-            magia_stats.setValue(magia+2);
-            pts_magia.setText("+2");
-
+            if(seleccion.charAt(11) == '7'){
+                escudo += 2;
+                escudo_stats.setValue(escudo);
+                
+            }
+            
+            if(seleccion.charAt(11) == '1'){
+                hp += 2;
+                escudo += 6;
+                magia += 1;
+                
+                hp_stats.setValue(hp);               
+                escudo_stats.setValue(escudo);
+                magia_stats.setValue(magia);               
+            }
+            
+            if(seleccion.charAt(11) == '2'){
+                hp += 5;
+                escudo += 10;
+                magia += 3;
+                velocidad += 2;
+                
+                hp_stats.setValue(hp);
+                escudo_stats.setValue(escudo);
+                velocidad_stats.setValue(velocidad);
+                magia_stats.setValue(magia);               
+            }
+            
         }
-    }//GEN-LAST:event_rb_arma_2ActionPerformed
-
-    private void rb_arma_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_3ActionPerformed
-
-        if(rb_arma_3.isSelected()){
-            rb_arma_1.setSelected(false);
-            rb_arma_2.setSelected(false);
-            
-            pts_hp.setText("");
-            pts_escudo.setText("");
-            pts_fuerza.setText("");
-            pts_magia.setText("");
-            pts_velocidad.setText("");
-            
-            hp_stats.setValue(hp+5);
-            pts_hp.setText("+5");
-
-            velocidad_stats.setValue(velocidad+3);
-            pts_velocidad.setText("+3");
-
-            magia_stats.setValue(magia+5);
-            pts_magia.setText("+5");
-
-        }
-    }//GEN-LAST:event_rb_arma_3ActionPerformed
-
-    private void b_comprar_armasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_comprar_armasActionPerformed
         
+        else{
+            
+            modelo.removeElementAt(ind_selec);
+            
+            if(seleccion.charAt(10) == 'v'){
+                hp += 3;
+                hp_stats.setValue(hp);
+                
+            }
+            
+            if(seleccion.charAt(10) == 'e'){
+                escudo += 3;               
+                escudo_stats.setValue(escudo);             
+            }
+            
+            if(seleccion.charAt(10) == 'm'){
+                magia += 6;
+                magia_stats.setValue(magia);               
+            }
+            
+        }
+                   
+    }//GEN-LAST:event_b_equipar_objetosActionPerformed
+
+    private void compra_cantidad_consumiblesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_compra_cantidad_consumiblesStateChanged
+
+        try {
+            Tot_compra_consumibles.setText("0");
+
+            int valor_consumibles = obtener_v_consumibles();
+            int cantidad_consumibles = obtener_cantidad_c();
+            int tot = valor_consumibles*cantidad_consumibles;
+
+            Tot_compra_consumibles.setText(""+tot);
+
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_compra_cantidad_consumiblesStateChanged
+
+    private void cancelar_compra_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar_compra_cActionPerformed
+
+        compra_cantidad_consumibles.setValue(0);
+        Tot_compra_consumibles.setText("0");
+
+    }//GEN-LAST:event_cancelar_compra_cActionPerformed
+
+    private void b_comprar_consumiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_comprar_consumiblesActionPerformed
+
         int moon_disponible;
         int total;
         moon_disponible = Integer.parseInt(MoonPoints.getText());
-        total = Integer.parseInt(Tot_compra_armas.getText());
-        
+        total = Integer.parseInt(Tot_compra_consumibles.getText());
+
         if(moon_disponible>total){
-            
-            modelo_añadir_a();
-            
+
+            modelo_añadir_c();
+
         }
         else{
             JOptionPane.showMessageDialog(null, "Usted no posee suficientes MoonPoints!", "Fondos Insuficientes", JOptionPane.ERROR_MESSAGE);
         }
-         
         
-        
-    }//GEN-LAST:event_b_comprar_armasActionPerformed
+        rb_consumibles_1.setSelected(false);
+        rb_consumibles_2.setSelected(false);
+        rb_consumibles_3.setSelected(false);
+        pts_hp.setText("");
+        pts_escudo.setText("");
+        pts_fuerza.setText("");
+        pts_magia.setText("");
+        pts_velocidad.setText("");
+        hp_stats.setValue(hp);       
+        escudo_stats.setValue(escudo);
+        fuerza_stats.setValue(fuerza);
+        magia_stats.setValue(magia);
+        velocidad_stats.setValue(velocidad);
 
-    private void rb_escudo_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_escudo_1ActionPerformed
+    }//GEN-LAST:event_b_comprar_consumiblesActionPerformed
+
+    private void rb_consumibles_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_consumibles_3ActionPerformed
 
         pts_hp.setText("");
         pts_escudo.setText("");
@@ -1326,18 +1101,16 @@ public class Tienda extends javax.swing.JInternalFrame {
         pts_magia.setText("");
         pts_velocidad.setText("");
 
-        if (rb_escudo_1.isSelected()){
-            rb_escudo_2.setSelected(false);
-            rb_escudo_3.setSelected(false);
+        if (rb_consumibles_3.isSelected()){
+            rb_consumibles_2.setSelected(false);
+            rb_consumibles_1.setSelected(false);
 
-            escudo_stats.setValue(escudo+2);
-            pts_escudo.setText("+2");
-
+            magia_stats.setValue(magia+6);
+            pts_magia.setText("+6");
         }
+    }//GEN-LAST:event_rb_consumibles_3ActionPerformed
 
-    }//GEN-LAST:event_rb_escudo_1ActionPerformed
-
-    private void rb_escudo_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_escudo_2ActionPerformed
+    private void rb_consumibles_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_consumibles_2ActionPerformed
 
         pts_hp.setText("");
         pts_escudo.setText("");
@@ -1345,21 +1118,86 @@ public class Tienda extends javax.swing.JInternalFrame {
         pts_magia.setText("");
         pts_velocidad.setText("");
 
-        if (rb_escudo_2.isSelected()){
-            rb_escudo_1.setSelected(false);
-            rb_escudo_3.setSelected(false);
-
-            hp_stats.setValue(hp+2);
-            pts_hp.setText("+2");
+        if (rb_consumibles_2.isSelected()){
+            rb_consumibles_1.setSelected(false);
+            rb_consumibles_3.setSelected(false);
 
             escudo_stats.setValue(escudo+6);
             pts_escudo.setText("+6");
-
-            magia_stats.setValue(magia+1);
-            pts_magia.setText("+1");
         }
+    }//GEN-LAST:event_rb_consumibles_2ActionPerformed
 
-    }//GEN-LAST:event_rb_escudo_2ActionPerformed
+    private void rb_consumibles_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_consumibles_1ActionPerformed
+
+        pts_hp.setText("");
+        pts_escudo.setText("");
+        pts_fuerza.setText("");
+        pts_magia.setText("");
+        pts_velocidad.setText("");
+
+        if (rb_consumibles_1.isSelected()){
+            rb_consumibles_2.setSelected(false);
+            rb_consumibles_3.setSelected(false);
+
+            hp_stats.setValue(hp+3);
+            pts_hp.setText("+3");
+
+        }
+    }//GEN-LAST:event_rb_consumibles_1ActionPerformed
+
+    private void compra_cantidad_escudosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_compra_cantidad_escudosStateChanged
+
+        try {
+            Tot_compra_escudos.setText("0");
+
+            int valor_escudos = obtener_v_escudos();
+            int cantidad_escudos = obtener_cantidad_e();
+            int tot = valor_escudos*cantidad_escudos;
+
+            Tot_compra_escudos.setText(""+tot);
+
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_compra_cantidad_escudosStateChanged
+
+    private void cancelar_compra_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar_compra_eActionPerformed
+
+        compra_cantidad_escudos.setValue(0);
+        Tot_compra_escudos.setText("0");
+
+    }//GEN-LAST:event_cancelar_compra_eActionPerformed
+
+    private void b_comprar_escudosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_comprar_escudosActionPerformed
+
+        int moon_disponible;
+        int total;
+        moon_disponible = Integer.parseInt(MoonPoints.getText());
+        total = Integer.parseInt(Tot_compra_escudos.getText());
+
+        if(moon_disponible>total){
+
+            modelo_añadir_e();
+
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Usted no posee suficientes MoonPoints!", "Fondos Insuficientes", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        rb_escudo_1.setSelected(false);
+        rb_escudo_2.setSelected(false);
+        rb_escudo_3.setSelected(false);
+        pts_hp.setText("");
+        pts_escudo.setText("");
+        pts_fuerza.setText("");
+        pts_magia.setText("");
+        pts_velocidad.setText("");
+        hp_stats.setValue(hp);       
+        escudo_stats.setValue(escudo);
+        fuerza_stats.setValue(fuerza);
+        magia_stats.setValue(magia);
+        velocidad_stats.setValue(velocidad);
+
+    }//GEN-LAST:event_b_comprar_escudosActionPerformed
 
     private void rb_escudo_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_escudo_3ActionPerformed
 
@@ -1388,7 +1226,7 @@ public class Tienda extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_rb_escudo_3ActionPerformed
 
-    private void rb_consumibles_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_consumibles_1ActionPerformed
+    private void rb_escudo_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_escudo_2ActionPerformed
 
         pts_hp.setText("");
         pts_escudo.setText("");
@@ -1396,242 +1234,170 @@ public class Tienda extends javax.swing.JInternalFrame {
         pts_magia.setText("");
         pts_velocidad.setText("");
 
-        if (rb_consumibles_1.isSelected()){
-            rb_consumibles_2.setSelected(false);
-            rb_consumibles_3.setSelected(false);
+        if (rb_escudo_2.isSelected()){  
+            rb_escudo_1.setSelected(false);
+            rb_escudo_3.setSelected(false);
 
-            hp_stats.setValue(hp+3);
-            pts_hp.setText("+3");
-
-        }
-
-    }//GEN-LAST:event_rb_consumibles_1ActionPerformed
-
-    private void rb_consumibles_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_consumibles_2ActionPerformed
-
-        pts_hp.setText("");
-        pts_escudo.setText("");
-        pts_fuerza.setText("");
-        pts_magia.setText("");
-        pts_velocidad.setText("");
-
-        if (rb_consumibles_2.isSelected()){
-            rb_consumibles_1.setSelected(false);
-            rb_consumibles_3.setSelected(false);
+            hp_stats.setValue(hp+2);
+            pts_hp.setText("+2");
 
             escudo_stats.setValue(escudo+6);
             pts_escudo.setText("+6");
-        }
-    }//GEN-LAST:event_rb_consumibles_2ActionPerformed
 
-    private void rb_consumibles_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_consumibles_3ActionPerformed
-        
+            magia_stats.setValue(magia+1);
+            pts_magia.setText("+1");
+        }
+    }//GEN-LAST:event_rb_escudo_2ActionPerformed
+
+    private void rb_escudo_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_escudo_1ActionPerformed
+
         pts_hp.setText("");
         pts_escudo.setText("");
         pts_fuerza.setText("");
         pts_magia.setText("");
         pts_velocidad.setText("");
-        
-        if (rb_consumibles_3.isSelected()){
-            rb_consumibles_2.setSelected(false);
-            rb_consumibles_1.setSelected(false);
-            
-        magia_stats.setValue(magia+6);
-        pts_magia.setText("+6");
-        }        
-    }//GEN-LAST:event_rb_consumibles_3ActionPerformed
 
-    private void v_rb_espada_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_espada_1ActionPerformed
-        
-        if(v_rb_espada_1.isSelected()){
-            v_rb_espada_2.setSelected(false);
-            v_rb_espada_3.setSelected(false);
-        }// TODO add your handling code here:
-    }//GEN-LAST:event_v_rb_espada_1ActionPerformed
+        if (rb_escudo_1.isSelected()){
+            rb_escudo_2.setSelected(false);
+            rb_escudo_3.setSelected(false);
 
-    private void v_rb_espada_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_espada_2ActionPerformed
-        
-        if(v_rb_espada_2.isSelected()){
-            v_rb_espada_1.setSelected(false);
-            v_rb_espada_3.setSelected(false);
-        }// TODO add your handling code here:        // TODO add your handling code here:
-    }//GEN-LAST:event_v_rb_espada_2ActionPerformed
+            escudo_stats.setValue(escudo+2);
+            pts_escudo.setText("+2");
 
-    private void v_rb_espada_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_espada_3ActionPerformed
-        
-        if(v_rb_espada_3.isSelected()){
-            v_rb_espada_2.setSelected(false);
-            v_rb_espada_1.setSelected(false);
-        }// TODO add your handling code here:        // TODO add your handling code here:
-    }//GEN-LAST:event_v_rb_espada_3ActionPerformed
-
-    private void v_rb_escudo_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_escudo_1ActionPerformed
-        
-        if(v_rb_escudo_1.isSelected()){
-            v_rb_escudo_2.setSelected(false);
-            v_rb_escudo_3.setSelected(false);
         }
-    }//GEN-LAST:event_v_rb_escudo_1ActionPerformed
-
-    private void v_rb_escudo_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_escudo_2ActionPerformed
-        
-        if(v_rb_escudo_2.isSelected()){
-            v_rb_escudo_1.setSelected(false);
-            v_rb_escudo_3.setSelected(false);
-        }
-    }//GEN-LAST:event_v_rb_escudo_2ActionPerformed
-
-    private void v_rb_escudo_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_escudo_3ActionPerformed
-        
-        if(v_rb_escudo_3.isSelected()){
-            v_rb_escudo_2.setSelected(false);
-            v_rb_escudo_1.setSelected(false);
-        }
-    }//GEN-LAST:event_v_rb_escudo_3ActionPerformed
-
-    private void v_rb_consumibles_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_consumibles_1ActionPerformed
-        
-        if(v_rb_consumibles_1.isSelected()){
-            v_rb_consumibles_2.setSelected(false);
-            v_rb_consumibles_3.setSelected(false);
-        }
-    }//GEN-LAST:event_v_rb_consumibles_1ActionPerformed
-
-    private void v_rb_consumibles_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_consumibles_2ActionPerformed
-        
-        if(v_rb_consumibles_2.isSelected()){
-            v_rb_consumibles_1.setSelected(false);
-            v_rb_consumibles_3.setSelected(false);
-        }
-    }//GEN-LAST:event_v_rb_consumibles_2ActionPerformed
-
-    private void v_rb_consumibles_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_v_rb_consumibles_3ActionPerformed
-        if(v_rb_consumibles_3.isSelected()){
-            v_rb_consumibles_2.setSelected(false);
-            v_rb_consumibles_1.setSelected(false);
-        }
-    }//GEN-LAST:event_v_rb_consumibles_3ActionPerformed
-
-    private void MoonPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoonPointsActionPerformed
-        MoonPoints.setEnabled(false);                
-    }//GEN-LAST:event_MoonPointsActionPerformed
-
-    private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton54ActionPerformed
-
-    private void b_equipar_objetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_equipar_objetosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_equipar_objetosActionPerformed
-
-    private void Tot_compra_armasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tot_compra_armasActionPerformed
-        
-        
-        
-    }//GEN-LAST:event_Tot_compra_armasActionPerformed
+    }//GEN-LAST:event_rb_escudo_1ActionPerformed
 
     private void compra_cantidad_armasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_compra_cantidad_armasStateChanged
         try {
             Tot_compra_armas.setText("0");
-             
+
             int valor_armas = obtener_v_armas();
             int cantidad_armas = obtener_cantidad_a();
             int tot = valor_armas*cantidad_armas;
 
             Tot_compra_armas.setText(""+tot);
-            
+
         }catch(Exception e){
         }
-            
+
     }//GEN-LAST:event_compra_cantidad_armasStateChanged
 
     private void cancelar_compra_aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar_compra_aActionPerformed
-        
+
         compra_cantidad_armas.setValue(0);
         Tot_compra_armas.setText("0");
-        
+
     }//GEN-LAST:event_cancelar_compra_aActionPerformed
 
-    private void b_comprar_escudosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_comprar_escudosActionPerformed
-        
+    private void b_comprar_armasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_comprar_armasActionPerformed
+
         int moon_disponible;
         int total;
         moon_disponible = Integer.parseInt(MoonPoints.getText());
-        total = Integer.parseInt(Tot_compra_escudos.getText());
-        
+        total = Integer.parseInt(Tot_compra_armas.getText());
+
         if(moon_disponible>total){
-            
-            modelo_añadir_e();
-            
+
+            modelo_añadir_a();
+
         }
         else{
             JOptionPane.showMessageDialog(null, "Usted no posee suficientes MoonPoints!", "Fondos Insuficientes", JOptionPane.ERROR_MESSAGE);
         }
-         
-    }//GEN-LAST:event_b_comprar_escudosActionPerformed
+        rb_arma_1.setSelected(false);
+        rb_arma_2.setSelected(false);
+        rb_arma_3.setSelected(false);
+        pts_hp.setText("");
+        pts_escudo.setText("");
+        pts_fuerza.setText("");
+        pts_magia.setText("");
+        pts_velocidad.setText("");
+        hp_stats.setValue(hp);       
+        escudo_stats.setValue(escudo);
+        fuerza_stats.setValue(fuerza);
+        magia_stats.setValue(magia);
+        velocidad_stats.setValue(velocidad);
 
-    private void cancelar_compra_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar_compra_eActionPerformed
-        
-        compra_cantidad_escudos.setValue(0);
-        Tot_compra_escudos.setText("0");
-        
-    }//GEN-LAST:event_cancelar_compra_eActionPerformed
+    }//GEN-LAST:event_b_comprar_armasActionPerformed
 
-    private void cancelar_compra_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar_compra_cActionPerformed
-          
-        compra_cantidad_consumibles.setValue(0);
-        Tot_compra_consumibles.setText("0");
-        
-    }//GEN-LAST:event_cancelar_compra_cActionPerformed
+    private void Tot_compra_armasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tot_compra_armasActionPerformed
 
-    private void b_comprar_consumiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_comprar_consumiblesActionPerformed
-        
-        int moon_disponible;
-        int total;
-        moon_disponible = Integer.parseInt(MoonPoints.getText());
-        total = Integer.parseInt(Tot_compra_consumibles.getText());
-        
-        if(moon_disponible>total){
+    }//GEN-LAST:event_Tot_compra_armasActionPerformed
 
-            modelo_añadir_c();
-            
+    private void rb_arma_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_3ActionPerformed
+
+        if(rb_arma_3.isSelected()){
+            rb_arma_1.setSelected(false);
+            rb_arma_2.setSelected(false);
+
+            pts_hp.setText("");
+            pts_escudo.setText("");
+            pts_fuerza.setText("");
+            pts_magia.setText("");
+            pts_velocidad.setText("");
+
+            hp_stats.setValue(hp+20);
+            pts_hp.setText("+20");
+
+            velocidad_stats.setValue(velocidad+3);
+            pts_velocidad.setText("+3");
+
+            magia_stats.setValue(magia+5);
+            pts_magia.setText("+5");
+
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Usted no posee suficientes MoonPoints!", "Fondos Insuficientes", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_rb_arma_3ActionPerformed
+
+    private void rb_arma_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_2ActionPerformed
+
+        if(rb_arma_2.isSelected()){
+            rb_arma_1.setSelected(false);
+            rb_arma_3.setSelected(false);
+
+            pts_hp.setText("");
+            pts_escudo.setText("");
+            pts_fuerza.setText("");
+            pts_magia.setText("");
+            pts_velocidad.setText("");
+
+            hp_stats.setValue(hp+5);
+            pts_hp.setText("+5");
+
+            escudo_stats.setValue(escudo+20);
+            pts_escudo.setText("+20");
+
+            magia_stats.setValue(magia+2);
+            pts_magia.setText("+2");
+
         }
-         
-         
-    }//GEN-LAST:event_b_comprar_consumiblesActionPerformed
+    }//GEN-LAST:event_rb_arma_2ActionPerformed
 
-    private void compra_cantidad_escudosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_compra_cantidad_escudosStateChanged
-        
-        try {
-            Tot_compra_escudos.setText("0");
-             
-            int valor_escudos = obtener_v_escudos();
-            int cantidad_escudos = obtener_cantidad_e();
-            int tot = valor_escudos*cantidad_escudos;
+    private void rb_arma_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_arma_1ActionPerformed
 
-            Tot_compra_escudos.setText(""+tot);
-            
-        }catch(Exception e){
+        if(rb_arma_1.isSelected()){
+            rb_arma_2.setSelected(false);
+            rb_arma_3.setSelected(false);
+
+            pts_hp.setText("");
+            pts_escudo.setText("");
+            pts_fuerza.setText("");
+            pts_magia.setText("");
+            pts_velocidad.setText("");
+
+            hp_stats.setValue(hp+2);
+            pts_hp.setText("+2");
+
         }
-    }//GEN-LAST:event_compra_cantidad_escudosStateChanged
 
-    private void compra_cantidad_consumiblesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_compra_cantidad_consumiblesStateChanged
-        
-        try {
-            Tot_compra_consumibles.setText("0");
-             
-            int valor_consumibles = obtener_v_consumibles();
-            int cantidad_consumibles = obtener_cantidad_c();
-            int tot = valor_consumibles*cantidad_consumibles;
+    }//GEN-LAST:event_rb_arma_1ActionPerformed
 
-            Tot_compra_consumibles.setText(""+tot);
-            
-        }catch(Exception e){
-        }
-    }//GEN-LAST:event_compra_cantidad_consumiblesStateChanged
+    private void b_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ventaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_ventaActionPerformed
+
+    private void b_desequiparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_desequiparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_desequiparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1643,54 +1409,40 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JButton b_comprar_armas;
     private javax.swing.JButton b_comprar_consumibles;
     private javax.swing.JButton b_comprar_escudos;
+    private javax.swing.JButton b_desequipar;
     private javax.swing.JButton b_equipar_objetos;
+    private javax.swing.JButton b_venta;
     private javax.swing.JButton cancelar_compra_a;
     private javax.swing.JButton cancelar_compra_c;
     private javax.swing.JButton cancelar_compra_e;
     private javax.swing.JSpinner compra_cantidad_armas;
-    private javax.swing.JSpinner compra_cantidad_armas1;
-    private javax.swing.JSpinner compra_cantidad_armas2;
-    private javax.swing.JSpinner compra_cantidad_armas3;
     private javax.swing.JSpinner compra_cantidad_consumibles;
     private javax.swing.JSpinner compra_cantidad_escudos;
     private javax.swing.JProgressBar escudo_stats;
     private javax.swing.JProgressBar fuerza_stats;
     private javax.swing.JProgressBar hp_stats;
-    private javax.swing.JButton jButton46;
-    private javax.swing.JButton jButton47;
-    private javax.swing.JButton jButton50;
-    private javax.swing.JButton jButton51;
-    private javax.swing.JButton jButton54;
-    private javax.swing.JButton jButton55;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList_armas;
+    private javax.swing.JList<String> jList_equipado;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1701,10 +1453,6 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
@@ -1719,17 +1467,9 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lab_escudo_1;
     private javax.swing.JLabel lab_escudo_2;
     private javax.swing.JLabel lab_escudo_3;
-    public javax.swing.JLabel lab_espada_1;
-    public javax.swing.JLabel lab_espada_2;
-    public javax.swing.JLabel lab_espada_3;
-    private javax.swing.JLabel lab_ven_consumible1;
-    private javax.swing.JLabel lab_ven_consumible2;
-    private javax.swing.JLabel lab_ven_escudo1;
-    private javax.swing.JLabel lab_ven_escudo2;
-    private javax.swing.JLabel lab_ven_escudo3;
-    private javax.swing.JLabel lab_ven_espada1;
-    private javax.swing.JLabel lab_ven_espada2;
-    private javax.swing.JLabel lab_ven_espada3;
+    private javax.swing.JLabel lab_espada_1;
+    private javax.swing.JLabel lab_espada_2;
+    private javax.swing.JLabel lab_espada_3;
     private javax.swing.JProgressBar magia_stats;
     private javax.swing.JLabel pts_escudo;
     private javax.swing.JLabel pts_fuerza;
@@ -1745,15 +1485,6 @@ public class Tienda extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rb_escudo_1;
     private javax.swing.JRadioButton rb_escudo_2;
     private javax.swing.JRadioButton rb_escudo_3;
-    private javax.swing.JRadioButton v_rb_consumibles_1;
-    private javax.swing.JRadioButton v_rb_consumibles_2;
-    private javax.swing.JRadioButton v_rb_consumibles_3;
-    private javax.swing.JRadioButton v_rb_escudo_1;
-    private javax.swing.JRadioButton v_rb_escudo_2;
-    private javax.swing.JRadioButton v_rb_escudo_3;
-    private javax.swing.JRadioButton v_rb_espada_1;
-    private javax.swing.JRadioButton v_rb_espada_2;
-    private javax.swing.JRadioButton v_rb_espada_3;
     private javax.swing.JProgressBar velocidad_stats;
     // End of variables declaration//GEN-END:variables
 }
