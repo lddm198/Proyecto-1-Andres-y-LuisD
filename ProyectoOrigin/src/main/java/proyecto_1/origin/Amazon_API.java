@@ -15,6 +15,7 @@ public class Amazon_API {
         
       
     }
+    //conexion con los datos de la API
     public String obtener_DataBase() throws Exception{
         HttpResponse<String> response = Unirest.get("https://covid-19-tracking.p.rapidapi.com/v1")
 	.header("x-rapidapi-host", "covid-19-tracking.p.rapidapi.com")
@@ -76,9 +77,6 @@ public class Amazon_API {
                       compara=compara+msj;
                       variable.indice++;
                   }
-
-                  System.out.println(compara);
-                  System.out.println(variable.enun);
 
 
                   if (compara.equals(variable.enun)){

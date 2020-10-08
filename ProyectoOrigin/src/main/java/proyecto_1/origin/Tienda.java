@@ -7,6 +7,7 @@ package proyecto_1.origin;
 import java.util.Arrays;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 
 /**
  *
@@ -946,6 +947,19 @@ public class Tienda extends javax.swing.JInternalFrame {
         magia = magia_stats.getValue();
         fuerza = fuerza_stats.getValue();
         velocidad = velocidad_stats.getValue();
+        Boolean pasa = true;
+        
+         ListModel model = jList_equipado.getModel();
+        for(int i=0; i < model.getSize(); i++){
+            
+            Object validacion =  model.getElementAt(i); 
+            if (validacion.toString().charAt(3)==seleccion.charAt(3)){
+                pasa=false;
+                break;
+            }
+        
+}
+         if (pasa==true){        
         
         if(seleccion.charAt(2) == 'p'){
             
@@ -980,7 +994,7 @@ public class Tienda extends javax.swing.JInternalFrame {
                                                     
         }
         
-        if(seleccion.charAt(3) == 'u'){
+        else if(seleccion.charAt(3) == 'u'){
             
             modelo2.addElement(seleccion);
             modelo.removeElementAt(ind_selec);
@@ -1017,6 +1031,7 @@ public class Tienda extends javax.swing.JInternalFrame {
         
         else{
             
+            modelo2.addElement(seleccion);
             modelo.removeElementAt(ind_selec);
             
             if(seleccion.charAt(10) == 'v'){
@@ -1035,6 +1050,9 @@ public class Tienda extends javax.swing.JInternalFrame {
                 magia_stats.setValue(magia);               
             }
             
+        }
+        }else {
+            JOptionPane.showMessageDialog(null,"El objeto ya esta equipado");
         }
                    
     }//GEN-LAST:event_b_equipar_objetosActionPerformed
@@ -1068,7 +1086,7 @@ public class Tienda extends javax.swing.JInternalFrame {
         moon_disponible = Integer.parseInt(MoonPoints.getText());
         total = Integer.parseInt(Tot_compra_consumibles.getText());
 
-        if(moon_disponible>total){
+        if(moon_disponible>=total){
 
             modelo_añadir_c();
 
@@ -1396,7 +1414,106 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_b_ventaActionPerformed
 
     private void b_desequiparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_desequiparActionPerformed
-        // TODO add your handling code here:
+        String seleccion = jList_equipado.getSelectedValue();
+        int ind_selec = jList_equipado.getSelectedIndex();
+        hp = hp_stats.getValue();
+        escudo = escudo_stats.getValue();
+        magia = magia_stats.getValue();
+        fuerza = fuerza_stats.getValue();
+        velocidad = velocidad_stats.getValue();
+        
+       
+        
+        if(seleccion.charAt(2) == 'p'){
+            
+            modelo.addElement(seleccion);
+            modelo2.removeElementAt(ind_selec);
+            
+            if(seleccion.charAt(11) == '5'){
+                hp -= 2;
+                hp_stats.setValue(hp);
+                
+            }
+            
+            if(seleccion.charAt(11) == '1'){
+                hp -= 5;
+                escudo -= 20;
+                magia -= 2;
+                
+                hp_stats.setValue(hp);               
+                escudo_stats.setValue(escudo);
+                magia_stats.setValue(magia);               
+            }
+            
+            if(seleccion.charAt(11) == '3'){
+                hp -= 20;
+                velocidad -= 3;
+                magia -= 5;
+                
+                hp_stats.setValue(hp);
+                velocidad_stats.setValue(velocidad);
+                magia_stats.setValue(magia);               
+            }
+                                                    
+        }
+        
+        else if(seleccion.charAt(3) == 'u'){
+            
+            modelo.addElement(seleccion);
+            modelo2.removeElementAt(ind_selec);
+            
+            if(seleccion.charAt(11) == '7'){
+                escudo -= 2;
+                escudo_stats.setValue(escudo);
+                
+            }
+            
+            if(seleccion.charAt(11) == '1'){
+                hp -= 2;
+                escudo -= 6;
+                magia -= 1;
+                
+                hp_stats.setValue(hp);               
+                escudo_stats.setValue(escudo);
+                magia_stats.setValue(magia);               
+            }
+            
+            if(seleccion.charAt(11) == '2'){
+                hp -= 5;
+                escudo -= 10;
+                magia -= 3;
+                velocidad -= 2;
+                
+                hp_stats.setValue(hp);
+                escudo_stats.setValue(escudo);
+                velocidad_stats.setValue(velocidad);
+                magia_stats.setValue(magia);               
+            }
+            
+        }
+        
+        else{
+            
+            modelo2.removeElementAt(ind_selec);
+            
+            if(seleccion.charAt(10) == 'v'){
+                hp -= 3;
+                hp_stats.setValue(hp);
+                
+            }
+            
+            if(seleccion.charAt(10) == 'e'){
+                escudo -= 3;               
+                escudo_stats.setValue(escudo);             
+            }
+            
+            if(seleccion.charAt(10) == 'm'){
+                magia -= 6;
+                magia_stats.setValue(magia);               
+            }
+            
+        }
+          
     }//GEN-LAST:event_b_desequiparActionPerformed
 
 
