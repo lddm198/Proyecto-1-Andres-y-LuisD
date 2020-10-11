@@ -959,7 +959,7 @@ public class Tienda extends javax.swing.JInternalFrame {
             }
         
 }
-         if (pasa==true){        
+        if (pasa==true){        
         
         if(seleccion.charAt(2) == 'p'){
             
@@ -1076,6 +1076,9 @@ public class Tienda extends javax.swing.JInternalFrame {
 
         compra_cantidad_consumibles.setValue(0);
         Tot_compra_consumibles.setText("0");
+        rb_consumibles_1.setSelected(false);
+        rb_consumibles_2.setSelected(false);
+        rb_consumibles_3.setSelected(false);
 
     }//GEN-LAST:event_cancelar_compra_cActionPerformed
 
@@ -1182,6 +1185,9 @@ public class Tienda extends javax.swing.JInternalFrame {
 
         compra_cantidad_escudos.setValue(0);
         Tot_compra_escudos.setText("0");
+        rb_escudo_1.setSelected(false);
+        rb_escudo_2.setSelected(false);
+        rb_escudo_3.setSelected(false);
 
     }//GEN-LAST:event_cancelar_compra_eActionPerformed
 
@@ -1304,6 +1310,9 @@ public class Tienda extends javax.swing.JInternalFrame {
 
         compra_cantidad_armas.setValue(0);
         Tot_compra_armas.setText("0");
+        rb_arma_1.setSelected(false);
+        rb_arma_2.setSelected(false);
+        rb_arma_3.setSelected(false);
 
     }//GEN-LAST:event_cancelar_compra_aActionPerformed
 
@@ -1410,7 +1419,61 @@ public class Tienda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rb_arma_1ActionPerformed
 
     private void b_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ventaActionPerformed
-        // TODO add your handling code here:
+        
+        String seleccion = jList_armas.getSelectedValue();
+        int ind_selec = jList_armas.getSelectedIndex();
+        Integer moon_disponible = Integer.parseInt(MoonPoints.getText());
+        int precio; precio=0;
+        String mensaje;
+        
+        if(seleccion.charAt(2) == 'p'){
+            
+            if(seleccion.charAt(11) == '5'){
+                precio = valores_a[0];            
+            }            
+            if(seleccion.charAt(11) == '1'){
+                precio = valores_a[1];               
+            }            
+            if(seleccion.charAt(11) == '3'){
+                precio = valores_a[2];               
+            }                                                   
+        }
+        
+        else if(seleccion.charAt(3) == 'u'){                      
+            if(seleccion.charAt(11) == '7'){
+                precio = valores_e[0];               
+            }            
+            if(seleccion.charAt(11) == '1'){
+                precio = valores_e[1];               
+            }           
+            if(seleccion.charAt(11) == '2'){
+                precio = valores_e[2];               
+            }            
+        }      
+        else{          
+            if(seleccion.charAt(10) == 'v'){
+                precio = valores_c[0];               
+            }            
+            if(seleccion.charAt(10) == 'e'){
+                precio = valores_c[1];               
+            }           
+            if(seleccion.charAt(10) == 'm'){
+                precio = valores_c[2];              
+            }
+            
+        }
+        precio -= 15;
+        mensaje = "Este objeto se vendera por $"+precio;
+        int respuesta = JOptionPane.showConfirmDialog(null, mensaje, "¿Desea realizar la venta?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if(respuesta==0){
+            moon_disponible += precio;
+            MoonPoints.setText(""+moon_disponible);
+            modelo.removeElementAt(ind_selec);
+            JOptionPane.showMessageDialog(null, "La venta se ha realizado con éxito!", "Objeto vendido", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        
     }//GEN-LAST:event_b_ventaActionPerformed
 
     private void b_desequiparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_desequiparActionPerformed
@@ -1421,9 +1484,7 @@ public class Tienda extends javax.swing.JInternalFrame {
         magia = magia_stats.getValue();
         fuerza = fuerza_stats.getValue();
         velocidad = velocidad_stats.getValue();
-        
-       
-        
+
         if(seleccion.charAt(2) == 'p'){
             
             modelo.addElement(seleccion);
