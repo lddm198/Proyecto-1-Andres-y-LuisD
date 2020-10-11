@@ -17,8 +17,8 @@ public class Amazon_API {
     }
     //conexion con los datos de la API
     public String obtener_DataBase() throws Exception{
-        HttpResponse<String> response = Unirest.get("https://covid-19-tracking.p.rapidapi.com/v1")
-	.header("x-rapidapi-host", "covid-19-tracking.p.rapidapi.com")
+        HttpResponse<String> response = Unirest.get("https://investors-exchange-iex-trading.p.rapidapi.com/stock/msft/effective-spread")
+	.header("x-rapidapi-host", "investors-exchange-iex-trading.p.rapidapi.com")
 	.header("x-rapidapi-key", "c1546fae8cmsh4af1328e729cf37p14c251jsnebf9f3fbf5a1")
 	.asString();
         
@@ -36,7 +36,7 @@ public class Amazon_API {
         int indice =0,articulos_seleccionados=0;
         char stop=0;
         
-        String enun = "Active Cases_text";
+        String enun = "volume";
         char key=enun.charAt(0);
         int valores[]=new int[3];
         int enunciado=enun.length(),i=0;
@@ -46,7 +46,7 @@ public class Amazon_API {
         int indice =0,articulos_seleccionados=0;
         char stop=0;
         
-        String enun = "Total Cases_text";
+        String enun = "effectiveSpread";
         char key=enun.charAt(0);
         int valores[]=new int[3];
         int enunciado=enun.length(),i=0;
@@ -56,7 +56,7 @@ public class Amazon_API {
         int indice =0,articulos_seleccionados=0;
         char stop=0;
         
-        String enun = "Total Deaths_text";
+        String enun = "effectiveQuoted";
         char key=enun.charAt(0);
         int valores[]=new int[3];
         int enunciado=enun.length(),i=0;
