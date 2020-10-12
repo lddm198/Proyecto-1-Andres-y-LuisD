@@ -1031,7 +1031,6 @@ public class Tienda extends javax.swing.JInternalFrame {
         
         else{
             
-            modelo2.addElement(seleccion);
             modelo.removeElementAt(ind_selec);
             
             if(seleccion.charAt(10) == 'v'){
