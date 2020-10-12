@@ -43,9 +43,9 @@ public class Tienda extends javax.swing.JInternalFrame {
         System.out.println("Valores_e: "+val_e[0]+" "+val_e[1]+" "+val_e[2]);
         System.out.println("Valores_c: "+val_c[0]+" "+val_c[1]+" "+val_c[2]);
         
-        valores_a = val_a;
-        valores_e = val_e;
-        valores_c = val_c;
+        valores_a = val_a;//A los escudos se les pone los precios de los consumibles, ya que el API estaba dando valores
+        valores_e = val_c;//muy pequeños 
+        valores_c = val_e;
         
         //Ordena de menor a mayor los valores del API para los objetos en la tienda
         Arrays.sort(valores_a);
@@ -1449,15 +1449,15 @@ public class Tienda extends javax.swing.JInternalFrame {
                 precio = valores_e[2];               
             }            
         }      
-        else{          
-            if(seleccion.charAt(10) == 'v'){
-                precio = valores_c[0];               
+        else{  //A los consumibles se les da 16 para que su percio de venta sea el mínmo posible, para no obtener
+            if(seleccion.charAt(10) == 'v'){                                    //mucha ganancia de un consumible
+                precio = 16;               
             }            
             if(seleccion.charAt(10) == 'e'){
-                precio = valores_c[1];               
+                precio = 16;               
             }           
             if(seleccion.charAt(10) == 'm'){
-                precio = valores_c[2];              
+                precio = 16;              
             }
             
         }
